@@ -126,7 +126,6 @@ temperedcrystal_debug.gbc:   RGBFIXFLAGS += -i BYTE -n 0
 %.gbc: $$(%_obj) layout.link
 	$(RGBLINK) $(RGBLINKFLAGS) -l layout.link -n $*.sym -m $*.map -o $@ $(filter %.o,$^)
 	$(RGBFIX) $(RGBFIXFLAGS) $@
-	tools/stadium $@
 
 
 ### LZ compression rules
