@@ -1,6 +1,6 @@
-# Pokémon Crystal [![Build Status][ci-badge]][ci]
+# Tempered Crystal [![Build Status][ci-badge]][ci]
 
-This is a disassembly of Pokémon Crystal.
+Hard-mode Crystal, based on the [pokecrystal](https://github.com/pret/pokecrystal) disassembly.
 
 It builds the following ROMs:
 
@@ -16,6 +16,7 @@ To set up the repository, see [INSTALL.md](INSTALL.md).
 
 ## See also
 
+- [**Credits**](CREDITS.md)
 - [**FAQ**](FAQ.md)
 - [**Documentation**][docs]
 - [**Wiki**][wiki] (includes [tutorials][tutorials])

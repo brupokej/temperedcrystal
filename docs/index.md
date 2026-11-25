@@ -1,3 +1,5 @@
+Hard-mode Crystal, based on the [pokecrystal](https://github.com/pret/pokecrystal) disassembly.
+
 These pages are for documenting pieces of the [pokecrystal](https://github.com/pret/pokecrystal) disassembly project. For more information, please see its [README.md](https://github.com/pret/pokecrystal/blob/master/README.md) and [wiki](https://github.com/pret/pokecrystal/wiki).
 
 
