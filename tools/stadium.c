@@ -1,5 +1,5 @@
 #define PROGRAM_NAME "stadium"
-#define USAGE_OPTS "[-h|--help] [-e|--european] pokecrystal.gbc"
+#define USAGE_OPTS "[-h|--help] [-e|--european] temperedcrystal.gbc"
 
 #include "common.h"
 

@@ -1,6 +1,6 @@
 # Map Setup Commands
 
-Defined in [macros/scripts/map_setup.asm](https://github.com/pret/pokecrystal/blob/master/macros/scripts/map_setup.asm) and [data/maps/setup_script_pointers.asm:MapSetupCommands](https://github.com/pret/pokecrystal/blob/master/data/maps/setup_script_pointers.asm).
+Defined in [macros/scripts/map_setup.asm](https://github.com/brupokej/temperedcrystal/blob/main/macros/scripts/map_setup.asm) and [data/maps/setup_script_pointers.asm:MapSetupCommands](https://github.com/brupokej/temperedcrystal/blob/main/data/maps/setup_script_pointers.asm).
 
 
 ## `$00`: `map_enable_lcd`

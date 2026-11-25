@@ -1,6 +1,6 @@
 # Design Flaws
 
-These are parts of the code that do not work *incorrectly*, like [bugs and glitches](https://github.com/pret/pokecrystal/blob/master/docs/bugs_and_glitches.md), but that clearly exist just to work around a problem. In other words, with a slightly different design, the code would not need to exist at all. Design flaws may be exceptions to a usual rule, such as "tables of pointers in different banks use `dba`" ([one exception](#pic-banks-are-offset-by-pics_fix), [and another](#pok%C3%A9dex-entry-banks-are-derived-from-their-species-ids)) or "graphics used as a unit are stored and loaded contiguously" ([a notable exception](#footprints-are-split-into-top-and-bottom-halves)).
+These are parts of the code that do not work *incorrectly*, like [bugs and glitches](https://github.com/brupokej/temperedcrystal/blob/main/docs/bugs_and_glitches.md), but that clearly exist just to work around a problem. In other words, with a slightly different design, the code would not need to exist at all. Design flaws may be exceptions to a usual rule, such as "tables of pointers in different banks use `dba`" ([one exception](#pic-banks-are-offset-by-pics_fix), [and another](#pok%C3%A9dex-entry-banks-are-derived-from-their-species-ids)) or "graphics used as a unit are stored and loaded contiguously" ([a notable exception](#footprints-are-split-into-top-and-bottom-halves)).
 
 
 ## Contents
@@ -19,7 +19,7 @@ These are parts of the code that do not work *incorrectly*, like [bugs and glitc
 
 ## Pic banks are offset by `PICS_FIX`
 
-[data/pokemon/pic_pointers.asm](https://github.com/pret/pokecrystal/blob/master/data/pokemon/pic_pointers.asm), [data/pokemon/unown_pic_pointers.asm](https://github.com/pret/pokecrystal/blob/master/data/pokemon/unown_pic_pointers.asm), and [data/trainers/pic_pointers.asm](https://github.com/pret/pokecrystal/blob/master/data/trainers/pic_pointers.asm) all have to use `dba_pic` instead of `dba`. This is a macro in [macros/data.asm](https://github.com/pret/pokecrystal/blob/master/macros/data.asm) that offsets banks by `PICS_FIX`:
+[data/pokemon/pic_pointers.asm](https://github.com/brupokej/temperedcrystal/blob/main/data/pokemon/pic_pointers.asm), [data/pokemon/unown_pic_pointers.asm](https://github.com/brupokej/temperedcrystal/blob/main/data/pokemon/unown_pic_pointers.asm), and [data/trainers/pic_pointers.asm](https://github.com/brupokej/temperedcrystal/blob/main/data/trainers/pic_pointers.asm) all have to use `dba_pic` instead of `dba`. This is a macro in [macros/data.asm](https://github.com/brupokej/temperedcrystal/blob/main/macros/data.asm) that offsets banks by `PICS_FIX`:
 
 ```asm
 MACRO dba_pic ; dbw bank, address
@@ -28,7 +28,7 @@ MACRO dba_pic ; dbw bank, address
 ENDM
 ```
 
-The offset is translated into a correct bank by `FixPicBank` in [engine/gfx/load_pics.asm](https://github.com/pret/pokecrystal/blob/master/engine/gfx/load_pics.asm):
+The offset is translated into a correct bank by `FixPicBank` in [engine/gfx/load_pics.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/gfx/load_pics.asm):
 
 ```asm
 FixPicBank:
@@ -54,14 +54,14 @@ EXPORT DEF PICS_FIX EQU $36
 	db BANK("Pics 24") ; BANK("Pics 1") + 23
 ```
 
-**Fix:** Delete `FixPicBank` and remove all four calls to `FixPicBank` in [engine/gfx/load_pics.asm](https://github.com/pret/pokecrystal/blob/master/engine/gfx/load_pics.asm). Then use `dba` instead of `dba_pic` everywhere.
+**Fix:** Delete `FixPicBank` and remove all four calls to `FixPicBank` in [engine/gfx/load_pics.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/gfx/load_pics.asm). Then use `dba` instead of `dba_pic` everywhere.
 
 
 ## `PokemonPicPointers` and `UnownPicPointers` are assumed to start at the same address
 
-`GetFrontpicPointer` and `GetMonBackpic` in [engine/gfx/load_pics.asm](https://github.com/pret/pokecrystal/blob/master/engine/gfx/load_pics.asm) make this assumption, which has to be accounted for in the data files.
+`GetFrontpicPointer` and `GetMonBackpic` in [engine/gfx/load_pics.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/gfx/load_pics.asm) make this assumption, which has to be accounted for in the data files.
 
-In [gfx/pics.asm](https://github.com/pret/pokecrystal/blob/master/gfx/pics.asm):
+In [gfx/pics.asm](https://github.com/brupokej/temperedcrystal/blob/main/gfx/pics.asm):
 
 ```asm
 ; PokemonPicPointers and UnownPicPointers are assumed to start at the same
@@ -78,7 +78,7 @@ SECTION "Unown Pic Pointers", ROMX
 INCLUDE "data/pokemon/unown_pic_pointers.asm"
 ```
 
-In [layout.link](https://github.com/pret/pokecrystal/blob/master/layout.link):
+In [layout.link](https://github.com/brupokej/temperedcrystal/blob/main/layout.link):
 
 ```
 ROMX $48
@@ -93,7 +93,7 @@ ROMX $49
 
 **Fix:**
 
-Don't enforce `org $4000` in [layout.link](https://github.com/pret/pokecrystal/blob/master/layout.link).
+Don't enforce `org $4000` in [layout.link](https://github.com/brupokej/temperedcrystal/blob/main/layout.link).
 
 Edit `GetFrontpicPointer`:
 
@@ -140,7 +140,7 @@ And `GetMonBackpic`:
 
 ## Footprints are split into top and bottom halves
 
-In [gfx/footprints.asm](https://github.com/pret/pokecrystal/blob/master/gfx/footprints.asm):
+In [gfx/footprints.asm](https://github.com/brupokej/temperedcrystal/blob/main/gfx/footprints.asm):
 
 ```asm
 ; Footprints are 2x2 tiles each, but are stored as a 16x64-tile image
@@ -177,7 +177,7 @@ INCBIN "gfx/footprints/wartortle.1bpp",  footprint_bottom
 ...
 ```
 
-`Pokedex_LoadAnyFootprint` in [engine/pokedex/pokedex.asm](https://github.com/pret/pokecrystal/blob/master/engine/pokedex/pokedex.asm) has to load the halves separately.
+`Pokedex_LoadAnyFootprint` in [engine/pokedex/pokedex.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/pokedex/pokedex.asm) has to load the halves separately.
 
 **Fix:**
 
@@ -237,13 +237,13 @@ Edit `Pokedex_LoadAnyFootprint`:
 
 ## Music IDs $64 and $80 or above have special behavior
 
-If a map's music ID in [data/maps/maps.asm](https://github.com/pret/pokecrystal/blob/master/master/data/maps/maps.asm) is $64 (the value of `MUSIC_MAHOGANY_MART` or `MUSIC_SUICUNE_BATTLE`) it will play either `MUSIC_ROCKET_HIDEOUT` or `MUSIC_CHERRYGROVE_CITY`. Moreover, if a map's music ID is $80 or above (the value of `RADIO_TOWER_MUSIC`) it might play `MUSIC_ROCKET_OVERTURE` or something else. This is caused by `GetMapMusic` in [home/map.asm](https://github.com/pret/pokecrystal/blob/master/master/home/map.asm).
+If a map's music ID in [data/maps/maps.asm](https://github.com/brupokej/temperedcrystal/blob/main/data/maps/maps.asm) is $64 (the value of `MUSIC_MAHOGANY_MART` or `MUSIC_SUICUNE_BATTLE`) it will play either `MUSIC_ROCKET_HIDEOUT` or `MUSIC_CHERRYGROVE_CITY`. Moreover, if a map's music ID is $80 or above (the value of `RADIO_TOWER_MUSIC`) it might play `MUSIC_ROCKET_OVERTURE` or something else. This is caused by `GetMapMusic` in [home/map.asm](https://github.com/brupokej/temperedcrystal/blob/main/home/map.asm).
 
 **Fix:**
 
-Replace `RADIO_TOWER_MUSIC | MUSIC_GOLDENROD_CITY` with `MUSIC_RADIO_TOWER` in [data/maps/maps.asm](https://github.com/pret/pokecrystal/blob/master/master/data/maps/maps.asm).
+Replace `RADIO_TOWER_MUSIC | MUSIC_GOLDENROD_CITY` with `MUSIC_RADIO_TOWER` in [data/maps/maps.asm](https://github.com/brupokej/temperedcrystal/blob/main/data/maps/maps.asm).
 
-Redefine the special music constants in [constants/music_constants.asm](https://github.com/pret/pokecrystal/blob/master/master/constants/music_constants.asm):
+Redefine the special music constants in [constants/music_constants.asm](https://github.com/brupokej/temperedcrystal/blob/main/constants/music_constants.asm):
 
 ```diff
 -; GetMapMusic picks music for this value (see home/map.asm)
@@ -318,7 +318,7 @@ Edit `GetMapMusic`:
 
 ## `ITEM_C3` and `ITEM_DC` break up the continuous sequence of TM items
 
-[constants/item_constants.asm](https://github.com/pret/pokecrystal/blob/master/constants/item_constants.asm) defined the 50 TMs in order with `add_tm`, but `ITEM_C3` and `ITEM_DC` break up that sequence.
+[constants/item_constants.asm](https://github.com/brupokej/temperedcrystal/blob/main/constants/item_constants.asm) defined the 50 TMs in order with `add_tm`, but `ITEM_C3` and `ITEM_DC` break up that sequence.
 
 ```asm
 	add_tm DYNAMICPUNCH ; bf
@@ -335,7 +335,7 @@ Edit `GetMapMusic`:
 DEF NUM_TMS EQU const_value - TM01 - 2 ; discount ITEM_C3 and ITEM_DC
 ```
 
-`GetTMHMNumber` and `GetNumberedTMHM` in [engine/items/items.asm](https://github.com/pret/pokecrystal/blob/master/engine/items/items.asm) have to compensate for this.
+`GetTMHMNumber` and `GetNumberedTMHM` in [engine/items/items.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/items/items.asm) have to compensate for this.
 
 > There was originally a good reason for these two gaps!
 >
@@ -357,7 +357,7 @@ DEF NUM_TMS EQU const_value - TM01 - 2 ; discount ITEM_C3 and ITEM_DC
 >
 > (Yellow also directly changed Dragonair's catch rate to 27 and Dragonite's to 9, but this seems to have been only for adjusting their difficulty, since those meaninglessly correspond to `PROTEIN` and `ANTIDOTE`.)
 >
-> Most catch rates were left as gaps in the item list, and transformed into held items via the `TimeCapsule_CatchRateItems` table in [data/items/catch_rate_items.asm](https://github.com/pret/pokecrystal/blob/master/data/items/catch_rate_items.asm). For example, the 52 Pokémon with catch rate 45 would hold the gap `ITEM_2D`, except that gets transformed into `BITTER_BERRY`.
+> Most catch rates were left as gaps in the item list, and transformed into held items via the `TimeCapsule_CatchRateItems` table in [data/items/catch_rate_items.asm](https://github.com/brupokej/temperedcrystal/blob/main/data/items/catch_rate_items.asm). For example, the 52 Pokémon with catch rate 45 would hold the gap `ITEM_2D`, except that gets transformed into `BITTER_BERRY`.
 >
 > But a few Pokémon end up with weird items. Abra has a catch rate of 200, or $C8; and Krabby, Horsea, Goldeen, and Staryu have a catch rate of 225, or $E1. Those indexes correspond to the items `TM_PSYCH_UP` and `TM_ICE_PUNCH`, which seem like random choices—because they are.
 >
@@ -369,7 +369,7 @@ DEF NUM_TMS EQU const_value - TM01 - 2 ; discount ITEM_C3 and ITEM_DC
 
 Move `ITEM_C3` and `ITEM_DC` above all the TMs in every table of item data.
 
-Edit [engine/items/items.asm](https://github.com/pret/pokecrystal/blob/master/engine/items/items.asm):
+Edit [engine/items/items.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/items/items.asm):
 
 ```diff
  GetTMHMNumber::
@@ -411,9 +411,9 @@ Edit [engine/items/items.asm](https://github.com/pret/pokecrystal/blob/master/en
 
 ## Pokédex entry banks are derived from their species IDs
 
-`PokedexDataPointerTable` in [data/pokemon/dex_entry_pointers.asm](https://github.com/pret/pokecrystal/blob/master/data/pokemon/dex_entry_pointers.asm) is a table of `dw`, not `dba`, yet there are four banks used for Pokédex entries. The correct bank is derived from the species ID at the beginning of each Pokémon's base stats. (This is the only use the base stat species ID has.)
+`PokedexDataPointerTable` in [data/pokemon/dex_entry_pointers.asm](https://github.com/brupokej/temperedcrystal/blob/main/data/pokemon/dex_entry_pointers.asm) is a table of `dw`, not `dba`, yet there are four banks used for Pokédex entries. The correct bank is derived from the species ID at the beginning of each Pokémon's base stats. (This is the only use the base stat species ID has.)
 
-Three separate routines do the same derivation: `GetDexEntryPointer` in [engine/pokedex/pokedex_2.asm](https://github.com/pret/pokecrystal/blob/master/engine/pokedex/pokedex_2.asm):
+Three separate routines do the same derivation: `GetDexEntryPointer` in [engine/pokedex/pokedex_2.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/pokedex/pokedex_2.asm):
 
 ```asm
 GetDexEntryPointer:
@@ -449,7 +449,7 @@ GetDexEntryPointer:
 	db BANK("Pokedex Entries 193-251")
 ```
 
-`HeavyBall_GetDexEntryBank` in [engine/items/item_effects.asm](https://github.com/pret/pokecrystal/blob/master/engine/items/item_effects.asm):
+`HeavyBall_GetDexEntryBank` in [engine/items/item_effects.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/items/item_effects.asm):
 
 ```asm
 HeavyBall_GetDexEntryBank:
@@ -475,7 +475,7 @@ HeavyBall_GetDexEntryBank:
 	db BANK("Pokedex Entries 193-251")
 ```
 
-And `PokedexShow_GetDexEntryBank` in [engine/pokegear/radio.asm](https://github.com/pret/pokecrystal/blob/master/engine/pokegear/radio.asm):
+And `PokedexShow_GetDexEntryBank` in [engine/pokegear/radio.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/pokegear/radio.asm):
 
 ```asm
 PokedexShow_GetDexEntryBank:
@@ -506,9 +506,9 @@ PokedexShow_GetDexEntryBank:
 
 Use `dba` instead of `dw` in `PokedexDataPointerTable`. Make sure to edit the `table_width` line to specify a width of 3 instead of 2.
 
-Delete `HeavyBall_GetDexEntryBank` and `PokedexShow_GetDexEntryBank`. You can also delete `NUM_DEX_ENTRY_BANKS` from [constants/pokemon_data_constants.asm](https://github.com/pret/pokecrystal/blob/master/constants/pokemon_data_constants.asm).
+Delete `HeavyBall_GetDexEntryBank` and `PokedexShow_GetDexEntryBank`. You can also delete `NUM_DEX_ENTRY_BANKS` from [constants/pokemon_data_constants.asm](https://github.com/brupokej/temperedcrystal/blob/main/constants/pokemon_data_constants.asm).
 
-Edit [engine/pokedex/pokedex_2.asm](https://github.com/pret/pokecrystal/blob/master/engine/pokedex/pokedex_2.asm):
+Edit [engine/pokedex/pokedex_2.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/pokedex/pokedex_2.asm):
 
 ```diff
  GetDexEntryPointer:
@@ -552,7 +552,7 @@ Edit [engine/pokedex/pokedex_2.asm](https://github.com/pret/pokecrystal/blob/mas
 -	db BANK("Pokedex Entries 193-251")
 ```
 
-Edit [engine/items/item_effects.asm](https://github.com/pret/pokecrystal/blob/master/engine/items/item_effects.asm):
+Edit [engine/items/item_effects.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/items/item_effects.asm):
 
 ```diff
  HeavyBallMultiplier:
@@ -594,7 +594,7 @@ Edit [engine/items/item_effects.asm](https://github.com/pret/pokecrystal/blob/ma
  	call GetFarWord
 ```
 
-And edit [engine/pokegear/radio.asm](https://github.com/pret/pokecrystal/blob/master/engine/pokegear/radio.asm):
+And edit [engine/pokegear/radio.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/pokegear/radio.asm):
 
 ```diff
  PokedexShow2:
@@ -624,7 +624,7 @@ And edit [engine/pokegear/radio.asm](https://github.com/pret/pokecrystal/blob/ma
 
 ## The 6-bit caught level can only record up to level 63
 
-Crystal added the Poké Seer, who tells you your Pokémon's caught data: where it was caught, what time, and at what level. The status screen also displays the gender of its Original Trainer, since Crystal added player genders. This data is packed into two previously-unused bytes in the `box_struct`; from [macros/ram.asm](https://github.com/pret/pokecrystal/blob/master/macros/ram.asm):
+Crystal added the Poké Seer, who tells you your Pokémon's caught data: where it was caught, what time, and at what level. The status screen also displays the gender of its Original Trainer, since Crystal added player genders. This data is packed into two previously-unused bytes in the `box_struct`; from [macros/ram.asm](https://github.com/brupokej/temperedcrystal/blob/main/macros/ram.asm):
 
 ```asm
 MACRO box_struct
@@ -640,7 +640,7 @@ MACRO box_struct
 ENDM
 ```
 
-These four pieces of data are packed into two bytes using the bitmasks in [constants/pokemon_data_constants.asm](https://github.com/pret/pokecrystal/blob/master/constants/pokemon_data_constants.asm):
+These four pieces of data are packed into two bytes using the bitmasks in [constants/pokemon_data_constants.asm](https://github.com/brupokej/temperedcrystal/blob/main/constants/pokemon_data_constants.asm):
 
 ```asm
 DEF CAUGHT_TIME_MASK  EQU %11000000
@@ -665,7 +665,7 @@ This limitation is probably why Lugia and Ho-Oh are both encountered at level 60
 
 ## Identical sine wave code and data is repeated five times
 
-`_Sine` in [engine/math/sine.asm](https://github.com/pret/pokecrystal/blob/master/engine/math/sine.asm):
+`_Sine` in [engine/math/sine.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/math/sine.asm):
 
 ```asm
 _Sine::
@@ -674,7 +674,7 @@ _Sine::
 	calc_sine_wave
 ```
 
-`Sprites_Cosine` and `Sprites_Sine` in [engine/sprite_anims/core.asm](https://github.com/pret/pokecrystal/blob/master/engine/sprite_anims/core.asm):
+`Sprites_Cosine` and `Sprites_Sine` in [engine/sprite_anims/core.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/sprite_anims/core.asm):
 
 ```asm
 Sprites_Cosine:
@@ -686,7 +686,7 @@ Sprites_Sine:
 	calc_sine_wave
 ```
 
-`BattleAnim_Cosine` and `BattleAnim_Sine` in [engine/battle_anims/functions.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle_anims/functions.asm):
+`BattleAnim_Cosine` and `BattleAnim_Sine` in [engine/battle_anims/functions.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle_anims/functions.asm):
 
 ```asm
 BattleAnim_Cosine:
@@ -703,14 +703,14 @@ BattleAnimSineWave:
 	sine_table 32
 ```
 
-`StartTrainerBattle_DrawSineWave` in [engine/battle/battle_transition.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/battle_transition.asm):
+`StartTrainerBattle_DrawSineWave` in [engine/battle/battle_transition.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/battle_transition.asm):
 
 ```asm
 StartTrainerBattle_DrawSineWave:
 	calc_sine_wave
 ```
 
-And `CelebiEvent_Cosine` in [engine/events/celebi.asm](https://github.com/pret/pokecrystal/blob/master/engine/events/celebi.asm):
+And `CelebiEvent_Cosine` in [engine/events/celebi.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/events/celebi.asm):
 
 ```asm
 CelebiEvent_Cosine:
@@ -719,7 +719,7 @@ CelebiEvent_Cosine:
 	calc_sine_wave
 ```
 
-They all rely on `calc_sine_wave` in [macros/code.asm](https://github.com/pret/pokecrystal/blob/master/macros/code.asm):
+They all rely on `calc_sine_wave` in [macros/code.asm](https://github.com/brupokej/temperedcrystal/blob/main/macros/code.asm):
 
 ```asm
 MACRO calc_sine_wave
@@ -770,7 +770,7 @@ endc
 ENDM
 ```
 
-And on `sine_table` in [macros/data.asm](https://github.com/pret/pokecrystal/blob/master/macros/data.asm):
+And on `sine_table` in [macros/data.asm](https://github.com/brupokej/temperedcrystal/blob/main/macros/data.asm):
 
 ```asm
 MACRO sine_table
@@ -781,12 +781,12 @@ MACRO sine_table
 ENDM
 ```
 
-**Fix:** Edit [home/sine.asm](https://github.com/pret/pokecrystal/blob/master/home/sine.asm) to contain a single copy of the (co)sine code in bank 0, and call it from those five sites.
+**Fix:** Edit [home/sine.asm](https://github.com/brupokej/temperedcrystal/blob/main/home/sine.asm) to contain a single copy of the (co)sine code in bank 0, and call it from those five sites.
 
 
 ## `GetForestTreeFrame` works, but it's still bad
 
-The routine `GetForestTreeFrame` in [engine/tilesets/tileset_anims.asm](https://github.com/pret/pokecrystal/blob/master/engine/tilesets/tileset_anims.asm) is hilariously inefficient.
+The routine `GetForestTreeFrame` in [engine/tilesets/tileset_anims.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/tilesets/tileset_anims.asm) is hilariously inefficient.
 
 **Fix:**
 
@@ -823,7 +823,7 @@ Edit `GetForestTreeFrame`:
 
 ## The overworld scripting engine assumes no more than 127 banks
 
-The `CallCallback` and `ExitScriptSubroutine` functions in [engine/overworld/scripting.asm](https://github.com/pret/pokecrystal/blob/master/engine/overworld/scripting.asm) use the highest bit of the bank value, to store whether a certain script stack position should be treated as a return from a callback. However, it seems it was opted to explicitly use the `endcallback` command for this purpose, instead.
+The `CallCallback` and `ExitScriptSubroutine` functions in [engine/overworld/scripting.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/overworld/scripting.asm) use the highest bit of the bank value, to store whether a certain script stack position should be treated as a return from a callback. However, it seems it was opted to explicitly use the `endcallback` command for this purpose, instead.
 
 As such, this bit serves no purpose but to make map scripts living in the higher banks of mappers such as Japanese Crystal's MBC30 crash for weird reasons.
 

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Usage: unnamed.py [-h] [-r rootdir] [-l count] pokecrystal.sym...
+Usage: unnamed.py [-h] [-r rootdir] [-l count] temperedcrystal.sym...
 
 Parse the symfiles to find unnamed symbols.
 """
@@ -49,8 +49,8 @@ if args.rootdir:
 	for line in subprocess.Popen(['make', '-C', args.rootdir, '-s', '-p', 'DEBUG=1'],
 			stdout=subprocess.PIPE).stdout.read().decode().split('\n'):
 		for version in ['', '_debug']:
-			if line.startswith(f'pokecrystal{version}_obj :='):
-				objects.extend(line[len(f'pokecrystal{version}_obj :='):].strip().split())
+			if line.startswith(f'temperedcrystal{version}_obj :='):
+				objects.extend(line[len(f'temperedcrystal{version}_obj :='):].strip().split())
 	if not objects:
 		print('Error: Object files not found!', file=sys.stderr)
 		sys.exit(1)
@@ -73,7 +73,7 @@ for symfile in args.symfiles:
 
 # If no object files were provided, just print what we know and exit
 unnamed_percent = 100 * (symbols_total - len(symbols)) / symbols_total
-print(f'Unnamed pokecrystal symbols: {len(symbols)} ({unnamed_percent:.2f}% complete)')
+print(f'Unnamed temperedcrystal symbols: {len(symbols)} ({unnamed_percent:.2f}% complete)')
 if not objects:
 	for sym in symbols:
 		print(sym)

@@ -1,6 +1,6 @@
 # Music Commands
 
-Defined in [macros/scripts/audio.asm](https://github.com/pret/pokecrystal/blob/master/macros/scripts/audio.asm) and [audio/engine.asm:MusicCommands](https://github.com/pret/pokecrystal/blob/master/audio/engine.asm).
+Defined in [macros/scripts/audio.asm](https://github.com/brupokej/temperedcrystal/blob/main/macros/scripts/audio.asm) and [audio/engine.asm:MusicCommands](https://github.com/brupokej/temperedcrystal/blob/main/audio/engine.asm).
 
 Note: Commands that are intended for the song channels (1-4) can be used by the sound effect channels (5-8) if the sound effect channel exits sound effect mode with the `toggle_sfx` command.
 
@@ -21,7 +21,7 @@ Used for each channel in a sound header.
 ## <code>note <i>pitch</i>, <i>length</i></code>
 
 Play a basic note. Used by channels 1-3.  
-`pitch`: Pitch of note (see [constants/audio_constants.asm](https://github.com/pret/pokecrystal/blob/master/constants/audio_constants.asm))  
+`pitch`: Pitch of note (see [constants/audio_constants.asm](https://github.com/brupokej/temperedcrystal/blob/main/constants/audio_constants.asm))
 `length`: Length of note in "ticks" [`1`, `16`]. The exact duration of a tick is dependant on the current "speed" (see `note_type` and `drum_speed`) and the current "tempo" (see `tempo`).
 
 
@@ -68,7 +68,7 @@ Set persistent note properties. Used by channels 1-3.
 `length`: Base note length [`1`, `15`] (`12` is often used for 4/4 common time because `12` is factorable by both `3` and `4`. Therefore it works very well for quarter notes, eighth notes, sixteenth notes, and triplets.)  
 `volume`: Initial volume [`0`, `15`] for channels 1-2, [`0`, `3`] for channel 3 (see `volume_envelope`)  
 `fade`: Volume fade [`-7`, `7`] (applies to channels 1-2)  
-`wave_instrument`: Wave instrument ID (applies to channel 3) (see [audio/wave_samples.asm](https://github.com/pret/pokecrystal/blob/master/audio/wave_samples.asm))
+`wave_instrument`: Wave instrument ID (applies to channel 3) (see [audio/wave_samples.asm](https://github.com/brupokej/temperedcrystal/blob/main/audio/wave_samples.asm))
 
 
 ## `$D8`: <code>drum_speed <i>length</i></code>
@@ -112,7 +112,7 @@ To change the sound for channel 3, use `note_type` or `volume_envelope`.
 Set the volume envelope for the current channel. Used by channels 1-3.  
 `volume`: Initial volume [`0`, `15`] for channels 1-2, [`0`, `3`] for channel 3  
 `fade`: Volume fade [`-7`, `7`] (applies to channels 1-2)  
-`wave_instrument`: Wave instrument ID (applies to channel 3) (see [audio/wave_samples.asm](https://github.com/pret/pokecrystal/blob/master/audio/wave_samples.asm))
+`wave_instrument`: Wave instrument ID (applies to channel 3) (see [audio/wave_samples.asm](https://github.com/brupokej/temperedcrystal/blob/main/audio/wave_samples.asm))
 
 For channel 3, the only accepted `volume` values are 0-3.
 
@@ -151,7 +151,7 @@ Note: Similar to the pokered command `execute_music`, however `execute_music` ca
 Bend the pitch of the next note played, and only that note. Used by channel 1.  
 `duration`: Duration of the target note after slide effect  
 `octave`: Target octave  
-`pitch`: Target pitch (see [constants/audio_constants.asm](https://github.com/pret/pokecrystal/blob/master/constants/audio_constants.asm))
+`pitch`: Target pitch (see [constants/audio_constants.asm](https://github.com/brupokej/temperedcrystal/blob/main/constants/audio_constants.asm))
 
 
 ## `$E1`: <code>vibrato <i>delay</i>, <i>extent</i>, <i>rate</i></code>
@@ -168,7 +168,7 @@ Apply vibrato to current channel. Used by channels 1-3.
 ## `$E3`: <code>toggle_noise <i>id</i></code>
 
 Set the "drum kit" to be used if it is currently unset. Mute the channel otherwise. Used by channel 4.  
-`id`: Drum kit ID [`0`, `5`] (see [audio/drumkits.asm](https://github.com/pret/pokecrystal/blob/master/audio/drumkits.asm))
+`id`: Drum kit ID [`0`, `5`] (see [audio/drumkits.asm](https://github.com/brupokej/temperedcrystal/blob/main/audio/drumkits.asm))
 
 Note: The drum kit ID is initially unset at the start of a song. When muting the channel, the `id` argument must not be present.
 
@@ -231,7 +231,7 @@ Set left/right stereo output for the current channel, if the user has stereo mod
 ## `$F0`: <code>sfx_toggle_noise <i>id</i></code>
 
 Set the "drum kit" to be used if it is currently unset. Mute the channel otherwise. Used by channel 8.  
-`id`: Drum kit ID [`0`, `5`] (see [audio/drumkits.asm](https://github.com/pret/pokecrystal/blob/master/audio/drumkits.asm))
+`id`: Drum kit ID [`0`, `5`] (see [audio/drumkits.asm](https://github.com/brupokej/temperedcrystal/blob/main/audio/drumkits.asm))
 
 Note: The drum kit ID is initially unset at the start of a song. When muting the channel, the `id` argument must not be present.
 

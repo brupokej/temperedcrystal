@@ -12,7 +12,7 @@ To set up the repository, see [INSTALL.md](INSTALL.md).
 - [**Documentation**][docs]
 - [**Symbols**][symbols]
 
-[docs]: https://pret.github.io/pokecrystal/
-[symbols]: https://github.com/pret/pokecrystal/tree/symbols
-[ci]: https://github.com/pret/pokecrystal/actions
-[ci-badge]: https://github.com/pret/pokecrystal/actions/workflows/main.yml/badge.svg
+[docs]: https://brupokej.github.io/temperedcrystal/
+[symbols]: https://github.com/brupokej/temperedcrystal/tree/symbols
+[ci]: https://github.com/brupokej/temperedcrystal/actions
+[ci-badge]: https://github.com/brupokej/temperedcrystal/actions/workflows/main.yml/badge.svg

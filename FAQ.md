@@ -45,7 +45,7 @@ If you are using 64-bit Windows, download [**64-bit Cygwin**][cygwin] and [**64-
 
 ### "Section is too big" or "Unable to place section in bank"
 
-If you have not changed any of the asm, make sure you have the latest version of pokecrystal and the correct version of rgbds (see [INSTALL.md](INSTALL.md)).
+If you have not changed any of the asm, make sure you have the latest version of Tempered Crystal and the correct version of rgbds (see [INSTALL.md](INSTALL.md)).
 
 If you added or changed any code, it has to fit in the **memory banks**. The 2MB ROM is divided into 128 banks of 4KB ($4000 bytes) each, numbered $00 to $7F. The linkerscript [layout.link](layout.link) lists which `SECTION`s go in which banks. Try moving some code into a new section.
 
@@ -55,14 +55,14 @@ Run `make clean` to remove all the old `o` files, then re-run `make`.
 
 ### "Syntax error"
 
-If you have not changed any of the asm, make sure you have the latest version of pokecrystal and the correct version of rgbds (see [INSTALL.md](INSTALL.md)).
+If you have not changed any of the asm, make sure you have the latest version of Tempered Crystal and the correct version of rgbds (see [INSTALL.md](INSTALL.md)).
 
 If you added or changed any code, you've made a mistake while writing some of it. Re-read the modifications you've made to the file it complains about and try to compare them with other code.
 
 
 ## How do I edit maps?
 
-For `asm` scripts, read [docs/map_event_scripts.md](https://pret.github.io/pokecrystal/map_event_scripts). For `blk` layouts, use [Polished Map][polished-map].
+For `asm` scripts, read [docs/map_event_scripts.md](https://brupokej.github.io/temperedcrystal/map_event_scripts). For `blk` layouts, use [Polished Map][polished-map].
 
 
 ## How do I edit the colors of an image?
@@ -76,7 +76,7 @@ It really depends on what image you're trying to change the colors of, where the
 
 ## How do I write new features?
 
-There are a number of special-purpose scripting languages, as described in [docs](https://pret.github.io/pokecrystal/). For more general features, you'll need to code directly in [assembly language][asm]. Some of the [tutorials][tutorials] for specific features may also be helpful.
+There are a number of special-purpose scripting languages, as described in [docs](https://brupokej.github.io/temperedcrystal/). For more general features, you'll need to code directly in [assembly language][asm]. Some of the [tutorials][tutorials] for specific features may also be helpful.
 
 
 [cygwin]: https://cygwin.com/install.html

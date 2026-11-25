@@ -125,7 +125,7 @@ Fixes in the [multi-player battle engine](#multi-player-battle-engine) category 
 
 ([Video](https://www.youtube.com/watch?v=1IiPWw5fMf8&t=85))
 
-**Fix:** Edit `CheckFaint_PlayerThenEnemy` and `CheckFaint_EnemyThenPlayer` in [engine/battle/core.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/core.asm):
+**Fix:** Edit `CheckFaint_PlayerThenEnemy` and `CheckFaint_EnemyThenPlayer` in [engine/battle/core.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/core.asm):
 
 ```diff
  	jp HandleEncore
@@ -173,7 +173,7 @@ Fixes in the [multi-player battle engine](#multi-player-battle-engine) category 
 
 ([Video](https://www.youtube.com/watch?v=rGqu3d3pdok&t=450))
 
-**Fix:** Edit `SpeciesItemBoost` in [engine/battle/effect_commands.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/effect_commands.asm):
+**Fix:** Edit `SpeciesItemBoost` in [engine/battle/effect_commands.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/effect_commands.asm):
 
 ```diff
  ; Double the stat
@@ -199,7 +199,7 @@ Fixes in the [multi-player battle engine](#multi-player-battle-engine) category 
 
 ([Video](https://www.youtube.com/watch?v=rGqu3d3pdok&t=450))
 
-**Fix:** Edit [engine/battle/effect_commands.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/effect_commands.asm):
+**Fix:** Edit [engine/battle/effect_commands.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/effect_commands.asm):
 
 ```diff
  DittoMetalPowder:
@@ -286,7 +286,7 @@ Fixes in the [multi-player battle engine](#multi-player-battle-engine) category 
 
 This bug existed for all battles in Gold and Silver, and was only fixed for single-player battles in Crystal to preserve link compatibility.
 
-**Fix:** Edit `TruncateHL_BC` in [engine/battle/effect_commands.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/effect_commands.asm):
+**Fix:** Edit `TruncateHL_BC` in [engine/battle/effect_commands.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/effect_commands.asm):
 
 ```diff
  .finish
@@ -313,7 +313,7 @@ This bug existed for all battles in Gold and Silver, and was only fixed for sing
 
 ([Video](https://www.youtube.com/watch?v=mHkyO5T5wZU&t=206))
 
-**Fix:** Edit `BattleCommand_EffectChance` in [engine/battle/effect_commands.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/effect_commands.asm):
+**Fix:** Edit `BattleCommand_EffectChance` in [engine/battle/effect_commands.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/effect_commands.asm):
 
 ```diff
  .got_move_chance
@@ -354,7 +354,7 @@ This bug existed for all battles in Gold and Silver, and was only fixed for sing
 
 ([Video](https://www.youtube.com/watch?v=zuCLMikWo4Y))
 
-**Fix:** Edit `BattleCommand_BellyDrum` in [engine/battle/move_effects/belly_drum.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/move_effects/belly_drum.asm):
+**Fix:** Edit `BattleCommand_BellyDrum` in [engine/battle/move_effects/belly_drum.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/move_effects/belly_drum.asm):
 
 ```diff
  BattleCommand_BellyDrum:
@@ -381,7 +381,7 @@ This bug existed for all battles in Gold and Silver, and was only fixed for sing
 
 ([Video](https://youtube.com/watch?v=Pru3mohq20A))
 
-**Fix:** Edit `HandleBerserkGene` in [engine/battle/core.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/core.asm):
+**Fix:** Edit `HandleBerserkGene` in [engine/battle/core.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/core.asm):
 
 ```diff
  HandleBerserkGene:
@@ -415,7 +415,7 @@ This makes the Berserk Gene use the regular confusion duration (2–5 turns).
 
 **Fix:**
 
-First, edit [wram.asm](https://github.com/pret/pokecrystal/blob/master/ram/wram.asm):
+First, edit [wram.asm](https://github.com/brupokej/temperedcrystal/blob/main/ram/wram.asm):
 
 ```diff
  wTurnEnded:: db
@@ -426,7 +426,7 @@ First, edit [wram.asm](https://github.com/pret/pokecrystal/blob/master/ram/wram.
  wPlayerStats::
 ```
 
-Then edit four routines in [engine/battle/effect_commands.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/effect_commands.asm):
+Then edit four routines in [engine/battle/effect_commands.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/effect_commands.asm):
 
 ```diff
  HitSelfInConfusion:
@@ -508,7 +508,7 @@ Then edit four routines in [engine/battle/effect_commands.asm](https://github.co
 
 This bug affects Acid, Iron Tail, and Rock Smash.
 
-**Fix:** Edit `DefenseDownHit` in [data/moves/effects.asm](https://github.com/pret/pokecrystal/blob/master/data/moves/effects.asm):
+**Fix:** Edit `DefenseDownHit` in [data/moves/effects.asm](https://github.com/brupokej/temperedcrystal/blob/main/data/moves/effects.asm):
 
 ```diff
  DefenseDownHit:
@@ -541,7 +541,7 @@ This bug affects Acid, Iron Tail, and Rock Smash.
 
 ([Video](https://www.youtube.com/watch?v=uRYyzKRatFk))
 
-**Fix:** Edit `BattleCommand_Counter` in [engine/battle/move_effects/counter.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/move_effects/counter.asm) and `BattleCommand_MirrorCoat` in [engine/battle/move_effects/mirror_coat.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/move_effects/mirror_coat.asm):
+**Fix:** Edit `BattleCommand_Counter` in [engine/battle/move_effects/counter.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/move_effects/counter.asm) and `BattleCommand_MirrorCoat` in [engine/battle/move_effects/mirror_coat.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/move_effects/mirror_coat.asm):
 
 ```diff
 -; BUG: Counter and Mirror Coat still work if the opponent uses an item (see docs/bugs_and_glitches.md)
@@ -567,7 +567,7 @@ Add this to the end of each file:
 
 ([Video](https://www.youtube.com/watch?v=1v9x4SgMggs))
 
-**Fix:** Edit `CheckPlayerHasUsableMoves` in [engine/battle/core.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/core.asm):
+**Fix:** Edit `CheckPlayerHasUsableMoves` in [engine/battle/core.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/core.asm):
 
 ```diff
  .done
@@ -590,7 +590,7 @@ Add this to the end of each file:
 
 ([Video](https://www.youtube.com/watch?v=tiRvw-Nb2ME))
 
-**Fix:** Edit `PursuitSwitch` in [engine/battle/core.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/core.asm):
+**Fix:** Edit `PursuitSwitch` in [engine/battle/core.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/core.asm):
 
 ```diff
 -; BUG: A Pokémon that fainted from Pursuit will have its old status condition when revived (see docs/bugs_and_glitches.md)
@@ -619,7 +619,7 @@ Add this to the end of each file:
 
 This bug affects Attract, Curse, Foresight, Mean Look, Mimic, Nightmare, Spider Web, Transform, and stat-lowering effects of moves like String Shot or Bubble during the semi-invulnerable turn of Fly or Dig.
 
-**Fix:** Edit `CheckHiddenOpponent` in [engine/battle/effect_commands.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/effect_commands.asm):
+**Fix:** Edit `CheckHiddenOpponent` in [engine/battle/effect_commands.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/effect_commands.asm):
 
 ```diff
  CheckHiddenOpponent:
@@ -641,7 +641,7 @@ This bug affects Attract, Curse, Foresight, Mean Look, Mimic, Nightmare, Spider 
 
 ([Video](https://www.youtube.com/watch?v=202-iAsrIa8))
 
-**Fix:** Edit `BattleCommand_BeatUp` in [engine/battle/move_effects/beat_up.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/move_effects/beat_up.asm):
+**Fix:** Edit `BattleCommand_BeatUp` in [engine/battle/move_effects/beat_up.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/move_effects/beat_up.asm):
 
 ```diff
  .got_mon
@@ -674,7 +674,7 @@ This bug affects Attract, Curse, Foresight, Mean Look, Mimic, Nightmare, Spider 
 
 This bug prevents the rest of Beat Up's effect from being executed if the player or enemy only has one Pokémon in their party while using it. It prevents Substitute from being raised and King's Rock from working.
 
-**Fix:** Edit `BattleCommand_EndLoop` in [engine/battle/effect_commands.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/effect_commands.asm):
+**Fix:** Edit `BattleCommand_EndLoop` in [engine/battle/effect_commands.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/effect_commands.asm):
 
 ```diff
  .only_one_beatup
@@ -703,7 +703,7 @@ This bug prevents the rest of Beat Up's effect from being executed if the player
 
 ### Beat Up may trigger King's Rock even if it failed
 
-**Fix:** Edit `BattleCommand_BeatUpFailText` in [engine/battle/move_effects/beat_up.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/move_effects/beat_up.asm):
+**Fix:** Edit `BattleCommand_BeatUpFailText` in [engine/battle/move_effects/beat_up.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/move_effects/beat_up.asm):
 
 ```diff
  BattleCommand_BeatUpFailText:
@@ -725,7 +725,7 @@ This bug prevents the rest of Beat Up's effect from being executed if the player
 
 This bug existed for all battles in Gold and Silver, and was only fixed for single-player battles in Crystal to preserve link compatibility.
 
-**Fix:** Edit `BattleCommand_Present` in [engine/battle/move_effects/present.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/move_effects/present.asm):
+**Fix:** Edit `BattleCommand_Present` in [engine/battle/move_effects/present.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/move_effects/present.asm):
 
 ```diff
  BattleCommand_Present:
@@ -754,7 +754,7 @@ This happens because the user's happiness (or 255 − happiness for Frustration)
 
 **Fix:**
 
-Edit [engine/battle/move_effects/return.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/move_effects/return.asm):
+Edit [engine/battle/move_effects/return.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/move_effects/return.asm):
 
 ```diff
  BattleCommand_HappinessPower:
@@ -775,7 +775,7 @@ Edit [engine/battle/move_effects/return.asm](https://github.com/pret/pokecrystal
  	ret
 ```
 
-And edit [engine/battle/move_effects/frustration.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/move_effects/frustration.asm):
+And edit [engine/battle/move_effects/frustration.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/move_effects/frustration.asm):
 
 ```diff
  BattleCommand_FrustrationPower:
@@ -799,7 +799,7 @@ And edit [engine/battle/move_effects/frustration.asm](https://github.com/pret/po
 
 ### Dragon Scale, not Dragon Fang, boosts Dragon-type moves
 
-**Fix:** Edit `ItemAttributes` in [data/items/attributes.asm](https://github.com/pret/pokecrystal/blob/master/data/items/attributes.asm):
+**Fix:** Edit `ItemAttributes` in [data/items/attributes.asm](https://github.com/brupokej/temperedcrystal/blob/main/data/items/attributes.asm):
 
 ```diff
 -; BUG: Dragon Scale, not Dragon Fang, boosts Dragon-type moves (see docs/bugs_and_glitches.md)
@@ -817,7 +817,7 @@ And edit [engine/battle/move_effects/frustration.asm](https://github.com/pret/po
 
 This happens because switching involves calculating a percentage of maximum enemy HP. Directly calculating *HP* × 100 / *max HP* would require a two-byte denominator, so instead the game calculates *HP* × 25 / (*max HP* / 4), since even a maximum HP of 999 divided by 4 is 249, which fits in one byte. However, if the maximum HP is below 4 this will divide by 0, which enters an infinite loop in `_Divide`.
 
-**Fix:** First, edit `SendOutMonText` in [engine/battle/core.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/core.asm):
+**Fix:** First, edit `SendOutMonText` in [engine/battle/core.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/core.asm):
 
 ```diff
 -; BUG: Switching out or switching against a Pokémon with max HP below 4 freezes the game (see docs/bugs_and_glitches.md)
@@ -912,7 +912,7 @@ This changes both calculations to *HP* × (100 / *N*) / (*max HP* / *N*) for the
 
 `BattleCommand_CheckFaint` "ends the move effect if the opponent faints", and these moves attempt to raise the user's stats *after* `checkfaint`. Note that fixing this can lead to stats being increased at the end of battle, but will not have any negative effects.
 
-**Fix:** Edit [data/moves/effects.asm](https://github.com/pret/pokecrystal/blob/master/data/moves/effects.asm):
+**Fix:** Edit [data/moves/effects.asm](https://github.com/brupokej/temperedcrystal/blob/main/data/moves/effects.asm):
 
 ```diff
  DefenseUpHit:
@@ -959,7 +959,7 @@ This changes both calculations to *HP* × (100 / *N*) / (*max HP* / *N*) for the
 
 ([Video](https://www.youtube.com/watch?v=AFiBxAOkCGI))
 
-**Fix:** Edit `BattleCommand_Sketch` in [engine/battle/move_effects/sketch.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/move_effects/sketch.asm):
+**Fix:** Edit `BattleCommand_Sketch` in [engine/battle/move_effects/sketch.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/move_effects/sketch.asm):
 
 ```diff
 -; If the opponent is transformed, fail.
@@ -975,7 +975,7 @@ This changes both calculations to *HP* × (100 / *N*) / (*max HP* / *N*) for the
 
 ### Catching a Transformed Pokémon always catches a Ditto
 
-**Fix:** Edit `PokeBallEffect` in [engine/items/item_effects.asm](https://github.com/pret/pokecrystal/blob/master/engine/items/item_effects.asm):
+**Fix:** Edit `PokeBallEffect` in [engine/items/item_effects.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/items/item_effects.asm):
 
 ```diff
  	ld hl, wEnemySubStatus5
@@ -1018,7 +1018,7 @@ This changes both calculations to *HP* × (100 / *N*) / (*max HP* / *N*) for the
 
 ([Video](https://www.youtube.com/watch?v=SXH8u0plHrE))
 
-**Fix:** Edit `CalcExpAtLevel` in [engine/pokemon/experience.asm](https://github.com/pret/pokecrystal/blob/master/engine/pokemon/experience.asm):
+**Fix:** Edit `CalcExpAtLevel` in [engine/pokemon/experience.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/pokemon/experience.asm):
 
 ```diff
  CalcExpAtLevel:
@@ -1052,7 +1052,7 @@ This changes both calculations to *HP* × (100 / *N*) / (*max HP* / *N*) for the
 
 This can occur if your party and current PC box are both full when you start the tutorial.
 
-**Fix:** Edit `PokeBallEffect` in [engine/items/item_effects.asm](https://github.com/pret/pokecrystal/blob/master/engine/items/item_effects.asm):
+**Fix:** Edit `PokeBallEffect` in [engine/items/item_effects.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/items/item_effects.asm):
 
 ```diff
  PokeBallEffect:
@@ -1080,7 +1080,7 @@ This can occur if your party and current PC box are both full when you start the
 
 ### BRN/PSN/PAR do not affect catch rate
 
-**Fix:** Edit `PokeBallEffect` in [engine/items/item_effects.asm](https://github.com/pret/pokecrystal/blob/master/engine/items/item_effects.asm):
+**Fix:** Edit `PokeBallEffect` in [engine/items/item_effects.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/items/item_effects.asm):
 
 ```diff
  .statuscheck
@@ -1108,7 +1108,7 @@ This can occur if your party and current PC box are both full when you start the
 
 The Moon Ball checks the wrong memory address for the wrong item ID, so no Pokémon can receive the boost.
 
-**Fix:** Edit `MoonBallMultiplier` in [engine/items/item_effects.asm](https://github.com/pret/pokecrystal/blob/master/engine/items/item_effects.asm):
+**Fix:** Edit `MoonBallMultiplier` in [engine/items/item_effects.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/items/item_effects.asm):
 
 ```diff
 -; BUG: Moon Ball does not boost catch rate (see docs/bugs_and_glitches.md)
@@ -1130,7 +1130,7 @@ Note that this fix only accounts for Pokémon that evolve via Moon Stone as thei
 
 ### Love Ball boosts catch rate for the wrong gender
 
-**Fix:** Edit `LoveBallMultiplier` in [engine/items/item_effects.asm](https://github.com/pret/pokecrystal/blob/master/engine/items/item_effects.asm):
+**Fix:** Edit `LoveBallMultiplier` in [engine/items/item_effects.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/items/item_effects.asm):
 
 ```diff
  .got_wild_gender
@@ -1147,7 +1147,7 @@ Note that this fix only accounts for Pokémon that evolve via Moon Stone as thei
 
 ### Fast Ball only boosts catch rate for three Pokémon
 
-**Fix:** Edit `FastBallMultiplier` in [engine/items/item_effects.asm](https://github.com/pret/pokecrystal/blob/master/engine/items/item_effects.asm):
+**Fix:** Edit `FastBallMultiplier` in [engine/items/item_effects.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/items/item_effects.asm):
 
 ```diff
  .loop
@@ -1170,7 +1170,7 @@ Note that this fix only accounts for Pokémon that evolve via Moon Stone as thei
 
 `HeavyBall_GetDexEntryBank` gets the wrong bank for Kadabra (64), Tauros (128), and Sunflora (192).
 
-**Fix:** Edit `HeavyBall_GetDexEntryBank` in [engine/items/item_effects.asm](https://github.com/pret/pokecrystal/blob/master/engine/items/item_effects.asm):
+**Fix:** Edit `HeavyBall_GetDexEntryBank` in [engine/items/item_effects.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/items/item_effects.asm):
 
 ```diff
  HeavyBall_GetDexEntryBank:
@@ -1203,7 +1203,7 @@ Note that this fix only accounts for Pokémon that evolve via Moon Stone as thei
 
 HP values above 341 remain larger than 1 byte after division.
 
-**Fix:** Edit `PokeBallEffect` in [engine/items/item_effects.asm](https://github.com/pret/pokecrystal/blob/master/engine/items/item_effects.asm):
+**Fix:** Edit `PokeBallEffect` in [engine/items/item_effects.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/items/item_effects.asm):
 
 ```diff
 	srl d
@@ -1238,7 +1238,7 @@ HP values above 341 remain larger than 1 byte after division.
 
 This does not affect link battles or Battle Tower battles because those jump from `LoadEnemyMon` to `InitEnemyMon`, which already calls `ApplyStatusEffectOnEnemyStats`.
 
-**Fix:** Edit `LoadEnemyMon` in [engine/battle/core.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/core.asm):
+**Fix:** Edit `LoadEnemyMon` in [engine/battle/core.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/core.asm):
 
 ```diff
  	ld hl, wEnemyMonStats
@@ -1256,7 +1256,7 @@ This does not affect link battles or Battle Tower battles because those jump fro
 
 Pryce's dialog ("That BADGE will raise the SPECIAL stats of POKéMON.") implies that Glacier Badge is intended to boost both Special Attack and Special Defense, but the Special Defense boost will not happen unless the unboosted Special Attack stat is 206–432, or 661 or above.
 
-**Fix:** Edit `BadgeStatBoosts.CheckBadge` in [engine/battle/core.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/core.asm):
+**Fix:** Edit `BadgeStatBoosts.CheckBadge` in [engine/battle/core.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/core.asm):
 
 ```diff
  .CheckBadge:
@@ -1282,7 +1282,7 @@ Pryce's dialog ("That BADGE will raise the SPECIAL stats of POKéMON.") implies 
 
 ([Video](https://www.youtube.com/watch?v=cygMO-zHTls))
 
-**Fix:** Edit `AI_Smart_MeanLook` in [engine/battle/ai/scoring.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/ai/scoring.asm):
+**Fix:** Edit `AI_Smart_MeanLook` in [engine/battle/ai/scoring.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/ai/scoring.asm):
 
 ```diff
  ; 80% chance to greatly encourage this move if the enemy is badly poisoned.
@@ -1296,7 +1296,7 @@ Pryce's dialog ("That BADGE will raise the SPECIAL stats of POKéMON.") implies 
 
 ### "Smart" AI discourages Conversion2 after the first turn
 
-**Fix:** Edit `AI_Smart_Conversion2` in [engine/battle/ai/scoring.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/ai/scoring.asm):
+**Fix:** Edit `AI_Smart_Conversion2` in [engine/battle/ai/scoring.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/ai/scoring.asm):
 
 ```diff
  AI_Smart_Conversion2:
@@ -1310,7 +1310,7 @@ Pryce's dialog ("That BADGE will raise the SPECIAL stats of POKéMON.") implies 
 
 ### "Smart" AI does not encourage Sunny Day when it knows Solar Beam, Flame Wheel, or Moonlight
 
-**Fix:** Edit `SunnyDayMoves` in [data/battle/ai/sunny_day_moves.asm](https://github.com/pret/pokecrystal/blob/master/data/battle/ai/sunny_day_moves.asm):
+**Fix:** Edit `SunnyDayMoves` in [data/battle/ai/sunny_day_moves.asm](https://github.com/brupokej/temperedcrystal/blob/main/data/battle/ai/sunny_day_moves.asm):
 
 ```diff
  SunnyDayMoves:
@@ -1332,7 +1332,7 @@ Pryce's dialog ("That BADGE will raise the SPECIAL stats of POKéMON.") implies 
 
 ### "Cautious" AI may fail to discourage residual moves
 
-**Fix:** Edit `AI_Cautious` in [engine/battle/ai/scoring.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/ai/scoring.asm):
+**Fix:** Edit `AI_Cautious` in [engine/battle/ai/scoring.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/ai/scoring.asm):
 
 ```diff
 AI_Cautious:
@@ -1358,7 +1358,7 @@ AI_Cautious:
 
 ### AI does not discourage Nightmare if the player has any status condition
 
-**Fix** Edit `AI_Redundant.Nightmare` in [engine/battle/ai/redundant.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/ai/redundant.asm):
+**Fix** Edit `AI_Redundant.Nightmare` in [engine/battle/ai/redundant.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/ai/redundant.asm):
 
 ```diff
  .Nightmare:
@@ -1375,7 +1375,7 @@ AI_Cautious:
 
 ### AI does not discourage Future Sight when it's already been used
 
-**Fix:** Edit `AI_Redundant.FutureSight` in [engine/battle/ai/redundant.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/ai/redundant.asm):
+**Fix:** Edit `AI_Redundant.FutureSight` in [engine/battle/ai/redundant.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/ai/redundant.asm):
 
 ```diff
  .FutureSight:
@@ -1392,7 +1392,7 @@ AI_Cautious:
 
 There is an incorrect assumption about this function made in the AI related code: when the AI calls CheckTypeMatchup (not BattleCheckTypeMatchup), it assumes that placing the offensive type in a will make this function do the right thing. Since a is overwritten, this assumption is incorrect. A simple fix would be to load the move type for the current move into a in BattleCheckTypeMatchup, before falling through, which is consistent with how the rest of the code assumes this code works like.
 
-**Fix:** Edit `BattleCheckTypeMatchup` in [engine/battle/effect_commands.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/effect_commands.asm):
+**Fix:** Edit `BattleCheckTypeMatchup` in [engine/battle/effect_commands.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/effect_commands.asm):
 
 ```diff
  BattleCheckTypeMatchup:
@@ -1422,7 +1422,7 @@ There is an incorrect assumption about this function made in the AI related code
 
 ([Video](https://www.youtube.com/watch?v=rGqu3d3pdok&t=322))
 
-**Fix:** Edit `AI_HealStatus` in [engine/battle/ai/items.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/ai/items.asm):
+**Fix:** Edit `AI_HealStatus` in [engine/battle/ai/items.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/ai/items.asm):
 
 ```diff
  AI_HealStatus:
@@ -1445,7 +1445,7 @@ There is an incorrect assumption about this function made in the AI related code
 
 ### AI use of Full Heal does not cure confusion status
 
-**Fix:** Edit `EnemyUsedFullRestore`, and `AI_HealStatus` in [engine/battle/ai/items.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/ai/items.asm):
+**Fix:** Edit `EnemyUsedFullRestore`, and `AI_HealStatus` in [engine/battle/ai/items.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/ai/items.asm):
 
 ```diff
  EnemyUsedFullRestore:
@@ -1481,7 +1481,7 @@ There is an incorrect assumption about this function made in the AI related code
 
 ### AI use of Full Heal or Full Restore does not cure Attack or Speed drops from burn or paralysis
 
-**Fix:** Edit `AI_HealStatus` in [engine/battle/ai/items.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/ai/items.asm):
+**Fix:** Edit `AI_HealStatus` in [engine/battle/ai/items.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/ai/items.asm):
 
 ```diff
  AI_HealStatus:
@@ -1505,7 +1505,7 @@ There is an incorrect assumption about this function made in the AI related code
 
 In the `AI_TryItem` routine, an item pointer is set to `wEnemyTrainerItem1` and then increments to `wEnemyTrainerItem2` to see if either of the AI's items are in the `AI_Items` list. However, if the AI has used its first item (or its first one is `ITEM_NONE`) and hasn't used its second item, the item pointer can increment from `wEnemyTrainerItem2` to `wEnemyTrainerBaseReward`. If the value at this address then matches an item in the `AI_Items` list, the AI could mistakenly use it.
 
-**Fix:** Edit `AI_TryItem` in [engine/battle/ai/items.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/ai/items.asm):
+**Fix:** Edit `AI_TryItem` in [engine/battle/ai/items.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/ai/items.asm):
 
 ```diff
  AI_TryItem:
@@ -1531,7 +1531,7 @@ In the `AI_TryItem` routine, an item pointer is set to `wEnemyTrainerItem1` and 
 
 ### Wild Pokémon can always Teleport regardless of level difference
 
-**Fix:** Edit `BattleCommand_Teleport` in [engine/battle/move_effects/teleport.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/move_effects/teleport.asm):
+**Fix:** Edit `BattleCommand_Teleport` in [engine/battle/move_effects/teleport.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/move_effects/teleport.asm):
 
 ```diff
  .loop_enemy
@@ -1553,7 +1553,7 @@ In the `AI_TryItem` routine, an item pointer is set to `wEnemyTrainerItem1` and 
 
 `RIVAL1` is battled throughout the game. `RIVAL2` is battled at Indigo Plateau, and would not be expected to have worse DVs.
 
-**Fix:** Edit `TrainerClassDVs` in [data/trainers/dvs.asm](https://github.com/pret/pokecrystal/blob/master/data/trainers/dvs.asm):
+**Fix:** Edit `TrainerClassDVs` in [data/trainers/dvs.asm](https://github.com/brupokej/temperedcrystal/blob/main/data/trainers/dvs.asm):
 
 ```diff
  	dn 13, 13, 13, 13 ; RIVAL1
@@ -1566,7 +1566,7 @@ In the `AI_TryItem` routine, an item pointer is set to `wEnemyTrainerItem1` and 
 
 ### `HELD_CATCH_CHANCE` has no effect
 
-**Fix:** Edit `PokeBallEffect` in [engine/items/item_effects.asm](https://github.com/pret/pokecrystal/blob/master/engine/items/item_effects.asm):
+**Fix:** Edit `PokeBallEffect` in [engine/items/item_effects.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/items/item_effects.asm):
 
 ```diff
 -; BUG: HELD_CATCH_CHANCE has no effect (see docs/bugs_and_glitches.md)
@@ -1593,7 +1593,7 @@ In the `AI_TryItem` routine, an item pointer is set to `wEnemyTrainerItem1` and 
 
 To select a move in battle, you have to press and release the Up or Down buttons. However, after playing the credits sequence, holding down either button will continuously scroll through the moves.
 
-**Fix:** Edit `Credits` in [engine/movie/credits.asm](https://github.com/pret/pokecrystal/blob/master/engine/movie/credits.asm):
+**Fix:** Edit `Credits` in [engine/movie/credits.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/movie/credits.asm):
 
 ```diff
 -; BUG: Credits sequence changes move selection menu behavior (see docs/bugs_and_glitches.md)
@@ -1620,7 +1620,7 @@ To select a move in battle, you have to press and release the Up or Down buttons
 
 The `[hInMenu]` value determines this button behavior. However, the battle moves menu doesn't actually set `[hInMenu]` to anything, so either behavior *may* have been intentional. The default 0 prevents continuous scrolling; a value of 1 allows it. (The Japanese release sets it to 0.)
 
-**Optional fix:** To explicitly set a `[hInMenu]` for the moves menu, edit `BattleTurn` in [engine/battle/core.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/core.asm):
+**Optional fix:** To explicitly set a `[hInMenu]` for the moves menu, edit `BattleTurn` in [engine/battle/core.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/core.asm):
 
 ```diff
  BattleTurn:
@@ -1649,7 +1649,7 @@ The `[hInMenu]` value determines this button behavior. However, the battle moves
 
 This bug prevents you from using blocksets with more than 128 blocks.
 
-**Fix:** Edit `LoadMetatiles` in [home/map.asm](https://github.com/pret/pokecrystal/blob/master/home/map.asm):
+**Fix:** Edit `LoadMetatiles` in [home/map.asm](https://github.com/brupokej/temperedcrystal/blob/main/home/map.asm):
 
 ```diff
  	; Set hl to the address of the current metatile data ([wTilesetBlocksAddress] + (a) tiles).
@@ -1676,7 +1676,7 @@ This bug prevents you from using blocksets with more than 128 blocks.
 
 **Fix:**
 
-First, edit `UsedSurfScript` in [engine/events/overworld.asm](https://github.com/pret/pokecrystal/blob/master/engine/events/overworld.asm):
+First, edit `UsedSurfScript` in [engine/events/overworld.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/events/overworld.asm):
 
 ```diff
  UsedSurfScript:
@@ -1698,7 +1698,7 @@ First, edit `UsedSurfScript` in [engine/events/overworld.asm](https://github.com
  	end
 ```
 
-Then edit `SurfStartStep` in [engine/overworld/player_object.asm](https://github.com/pret/pokecrystal/blob/master/engine/overworld/player_object.asm):
+Then edit `SurfStartStep` in [engine/overworld/player_object.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/overworld/player_object.asm):
 
 ```diff
  SurfStartStep:
@@ -1741,9 +1741,9 @@ This fix will make the player enter the water at a normal walking speed, not wit
 
 ### Swimming NPCs aren't limited by their movement radius
 
-This bug is why the Lapras in [maps/UnionCaveB2F.asm](https://github.com/pret/pokecrystal/blob/master/maps/UnionCaveB2F.asm), which uses `SPRITEMOVEDATA_SWIM_WANDER`, is not restricted by its `1, 1` movement radius.
+This bug is why the Lapras in [maps/UnionCaveB2F.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/UnionCaveB2F.asm), which uses `SPRITEMOVEDATA_SWIM_WANDER`, is not restricted by its `1, 1` movement radius.
 
-**Fix:** Edit `CanObjectMoveInDirection` in [engine/overworld/npc_movement.asm](https://github.com/pret/pokecrystal/blob/master/engine/overworld/npc_movement.asm):
+**Fix:** Edit `CanObjectMoveInDirection` in [engine/overworld/npc_movement.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/overworld/npc_movement.asm):
 
 ```diff
 -; BUG: Swimming NPCs aren't limited by their movement radius (see docs/bugs_and_glitches.md)
@@ -1756,7 +1756,7 @@ This bug is why the Lapras in [maps/UnionCaveB2F.asm](https://github.com/pret/po
 
 ### You can fish on top of NPCs
 
-**Fix**: Edit [engine/events/overworld.asm](https://github.com/pret/pokecrystal/blob/master/engine/events/overworld.asm):
+**Fix**: Edit [engine/events/overworld.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/events/overworld.asm):
 
 ```diff
  FishFunction:
@@ -1786,7 +1786,7 @@ This bug is why the Lapras in [maps/UnionCaveB2F.asm](https://github.com/pret/po
 
 When a Pokémon is withdrawn from the Day-Care, its Exp. Points are reset to the minimum required for its level. This means that if it hadn't gained any levels while in the Day-Care, it may lose experience.
 
-**Fix:** Edit `RetrieveBreedmon` in [engine/pokemon/move_mon.asm](https://github.com/pret/pokecrystal/blob/master/engine/pokemon/move_mon.asm):
+**Fix:** Edit `RetrieveBreedmon` in [engine/pokemon/move_mon.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/pokemon/move_mon.asm):
 
 ```diff
  RetrieveBreedmon:
@@ -1837,33 +1837,33 @@ When a Pokémon is withdrawn from the Day-Care, its Exp. Points are reset to the
 
 ### In-battle “`…`” ellipsis is too high
 
-This is a mistake with the “`…`” tile in [gfx/battle/hp_exp_bar_border.png](https://github.com/pret/pokecrystal/blob/master/gfx/battle/hp_exp_bar_border.png):
+This is a mistake with the “`…`” tile in [gfx/battle/hp_exp_bar_border.png](https://github.com/brupokej/temperedcrystal/blob/main/gfx/battle/hp_exp_bar_border.png):
 
-![image](https://raw.githubusercontent.com/pret/pokecrystal/master/gfx/battle/hp_exp_bar_border.png)
+![image](https://raw.githubusercontent.com/brupokej/temperedcrystal/main/gfx/battle/hp_exp_bar_border.png)
 
 **Fix:** Lower the ellipsis by two pixels:
 
-![image](https://raw.githubusercontent.com/pret/pokecrystal/master/docs/images/hp_exp_bar_border.png)
+![image](https://raw.githubusercontent.com/brupokej/temperedcrystal/main/docs/images/hp_exp_bar_border.png)
 
 
 ### Two tiles in the `port` tileset are drawn incorrectly
 
-This is a mistake with the left-hand warp carpet corner tiles in [gfx/tilesets/port.png](https://github.com/pret/pokecrystal/blob/master/gfx/tilesets/port.png):
+This is a mistake with the left-hand warp carpet corner tiles in [gfx/tilesets/port.png](https://github.com/brupokej/temperedcrystal/blob/main/gfx/tilesets/port.png):
 
-![image](https://raw.githubusercontent.com/pret/pokecrystal/master/gfx/tilesets/port.png)
+![image](https://raw.githubusercontent.com/brupokej/temperedcrystal/main/gfx/tilesets/port.png)
 
 **Fix:** Adjust them to match the right-hand corner tiles:
 
-![image](https://raw.githubusercontent.com/pret/pokecrystal/master/docs/images/port.png)
+![image](https://raw.githubusercontent.com/brupokej/temperedcrystal/main/docs/images/port.png)
 
 
 ### The Ruins of Alph research center's roof color at night looks wrong
 
-The dungeons' map group mostly has indoor maps that don't need roof colors, but [maps/RuinsOfAlphOutside.blk](https://github.com/pret/pokecrystal/blob/master/maps/RuinsOfAlphOutside.blk) is an exception. It appears to have poorly-chosen roof colors: the morning/day colors are the same default gray as the unused group 0, and the night colors combine the light default gray and the dark red of Cinnabar's night roofs.
+The dungeons' map group mostly has indoor maps that don't need roof colors, but [maps/RuinsOfAlphOutside.blk](https://github.com/brupokej/temperedcrystal/blob/main/maps/RuinsOfAlphOutside.blk) is an exception. It appears to have poorly-chosen roof colors: the morning/day colors are the same default gray as the unused group 0, and the night colors combine the light default gray and the dark red of Cinnabar's night roofs.
 
-![image](https://raw.githubusercontent.com/pret/pokecrystal/master/docs/images/ruins_of_alph_outside.png)
+![image](https://raw.githubusercontent.com/brupokej/temperedcrystal/main/docs/images/ruins_of_alph_outside.png)
 
-**Fix:** Edit [gfx/tilesets/roofs.pal](https://github.com/pret/pokecrystal/blob/master/gfx/tilesets/roofs.pal) to use the same red colors as Cinnabar (which are not actually seen in-game):
+**Fix:** Edit [gfx/tilesets/roofs.pal](https://github.com/brupokej/temperedcrystal/blob/main/gfx/tilesets/roofs.pal) to use the same red colors as Cinnabar (which are not actually seen in-game):
 
 ```diff
  ; group 3 (dungeons)
@@ -1873,23 +1873,23 @@ The dungeons' map group mostly has indoor maps that don't need roof colors, but 
 +	RGB 18,05,09, 17,08,07 ; nite
 ```
 
-![image](https://raw.githubusercontent.com/pret/pokecrystal/master/docs/images/ruins_of_alph_outside_cinnabar.png)
+![image](https://raw.githubusercontent.com/brupokej/temperedcrystal/main/docs/images/ruins_of_alph_outside_cinnabar.png)
 
 
 ### Slowpoke Well's stones use the wrong corner tile
 
 This is a mistake with block $5B in the `johto_modern` tileset. The bottom-left corners of the three stones around Slowpoke Well use tile $4B, but should use tile $47.
 
-![image](https://raw.githubusercontent.com/pret/pokecrystal/master/docs/images/slowpoke_well.png)
+![image](https://raw.githubusercontent.com/brupokej/temperedcrystal/main/docs/images/slowpoke_well.png)
 
 **Fix:** Edit block $5B with [Polished Map](https://github.com/Rangi42/polished-map) to use the same tiles as block $5C:
 
-![image](https://raw.githubusercontent.com/pret/pokecrystal/master/docs/images/slowpoke_well_fixed.png)
+![image](https://raw.githubusercontent.com/brupokej/temperedcrystal/main/docs/images/slowpoke_well_fixed.png)
 
 
 ### A hatching Unown egg would not show the right letter
 
-**Fix:** Edit both functions in [engine/pokemon/breeding.asm](https://github.com/pret/pokecrystal/blob/master/engine/pokemon/breeding.asm):
+**Fix:** Edit both functions in [engine/pokemon/breeding.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/pokemon/breeding.asm):
 
 ```diff
  GetEggFrontpic:
@@ -1923,7 +1923,7 @@ This is a mistake with block $5B in the `johto_modern` tileset. The bottom-left 
 
 This bug prevents Substitute from being raised if Beat Up was blocked by Protect or Detect.
 
-**Fix:** Edit `BattleCommand_FailureText` in [engine/battle/effect_commands.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/effect_commands.asm).
+**Fix:** Edit `BattleCommand_FailureText` in [engine/battle/effect_commands.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/effect_commands.asm).
 
 ```diff
 -; BUG: Beat Up may fail to raise Substitute (see docs/bugs_and_glitches.md)
@@ -1947,7 +1947,7 @@ This bug prevents Substitute from being raised if Beat Up was blocked by Protect
 
 ([Video](https://www.youtube.com/watch?v=SE-BfsFgZVM))
 
-**Fix:** Edit `LongAnim_UpdateVariables` in [engine/battle/anim_hp_bar.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/anim_hp_bar.asm):
+**Fix:** Edit `LongAnim_UpdateVariables` in [engine/battle/anim_hp_bar.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/anim_hp_bar.asm):
 
 ```diff
 -; BUG: HP bar animation is slow for high HP (see docs/bugs_and_glitches.md)
@@ -1970,7 +1970,7 @@ This bug prevents Substitute from being raised if Beat Up was blocked by Protect
 
 ([Video](https://www.youtube.com/watch?v=9KyNVIZxJvI))
 
-**Fix:** Edit `ShortHPBar_CalcPixelFrame` in [engine/battle/anim_hp_bar.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/anim_hp_bar.asm):
+**Fix:** Edit `ShortHPBar_CalcPixelFrame` in [engine/battle/anim_hp_bar.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/anim_hp_bar.asm):
 
 ```diff
  	ld b, 0
@@ -1993,7 +1993,7 @@ This bug prevents Substitute from being raised if Beat Up was blocked by Protect
 
 ([Video](https://www.youtube.com/watch?v=v1ErZdLCIyU))
 
-**Fix:** Edit `PokeBallEffect` in [engine/items/item_effects.asm](https://github.com/pret/pokecrystal/blob/master/engine/items/item_effects.asm):
+**Fix:** Edit `PokeBallEffect` in [engine/items/item_effects.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/items/item_effects.asm):
 
 ```diff
  .room_in_party
@@ -2020,7 +2020,7 @@ There are three things wrong here:
 
 **Fix:**
 
-First, edit [engine/battle/battle_transition.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/battle_transition.asm):
+First, edit [engine/battle/battle_transition.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/battle_transition.asm):
 
 ```diff
  StartTrainerBattle_DetermineWhichAnimation:
@@ -2081,7 +2081,7 @@ First, edit [engine/battle/battle_transition.asm](https://github.com/pret/pokecr
  	db BATTLETRANSITION_NO_CAVE_STRONGER
 ```
 
-Then edit [engine/battle/start_battle.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/start_battle.asm):
+Then edit [engine/battle/start_battle.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/start_battle.asm):
 
 ```diff
  FindFirstAliveMonAndStartBattle:
@@ -2108,7 +2108,7 @@ Then edit [engine/battle/start_battle.asm](https://github.com/pret/pokecrystal/b
  	predef DoBattleTransition
 ```
 
-Finally, edit [engine/battle/read_trainer_party.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/read_trainer_party.asm):
+Finally, edit [engine/battle/read_trainer_party.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/read_trainer_party.asm):
 
 ```diff
  INCLUDE "data/trainers/parties.asm"
@@ -2166,27 +2166,27 @@ Finally, edit [engine/battle/read_trainer_party.asm](https://github.com/pret/pok
 
 Most trainer classes always use the same sprite and color for their overworld NPCs. There are some exceptions:
 
-- [maps/FastShipCabins_SE_SSE_CaptainsCabin.asm](https://github.com/pret/pokecrystal/blob/master/maps/FastShipCabins_SE_SSE_CaptainsCabin.asm): `TrainerPsychicRodney` should use `SPRITE_YOUNGSTER`, not `SPRITE_SUPER_NERD`
-- [maps/LakeOfRage.asm](https://github.com/pret/pokecrystal/blob/master/maps/LakeOfRage.asm): `TrainerFisherAndre` and `TrainerFisherRaymond` should use `PAL_NPC_GREEN`, not `PAL_NPC_BLUE`
-- [maps/Route13.asm](https://github.com/pret/pokecrystal/blob/master/maps/Route13.asm): `TrainerHikerKenny` should use `PAL_NPC_BROWN`, not `PAL_NPC_RED`
-- [maps/Route44.asm](https://github.com/pret/pokecrystal/blob/master/maps/Route44.asm): `TrainerBirdKeeperVance1` should use `PAL_NPC_BLUE`, not `PAL_NPC_GREEN`
-- [maps/Route44.asm](https://github.com/pret/pokecrystal/blob/master/maps/Route44.asm): `TrainerPokemaniacZach` should use `PAL_NPC_BLUE`, not `PAL_NPC_GREEN`
-- [maps/UnionCaveB2F.asm](https://github.com/pret/pokecrystal/blob/master/maps/UnionCaveB2F.asm): `TrainerCooltrainermNick` should use `SPRITE_COOLTRAINER_M`, not `SPRITE_ROCKER`
-- [maps/FuchsiaPokecenter1F.asm](https://github.com/pret/pokecrystal/blob/master/maps/FuchsiaPokecenter1F.asm): `FuchsiaPokecenter1FNurseScript` should use `PAL_NPC_RED`, not `PAL_NPC_GREEN`
-- [maps/IlexForest.asm](https://github.com/pret/pokecrystal/blob/master/maps/IlexForest.asm): `TrainerBugCatcherWayne` should use `SPRITE_BUG_CATCHER` and `PAL_NPC_BROWN`, not `SPRITE_YOUNGSTER` and `PAL_NPC_GREEN`
+- [maps/FastShipCabins_SE_SSE_CaptainsCabin.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/FastShipCabins_SE_SSE_CaptainsCabin.asm): `TrainerPsychicRodney` should use `SPRITE_YOUNGSTER`, not `SPRITE_SUPER_NERD`
+- [maps/LakeOfRage.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/LakeOfRage.asm): `TrainerFisherAndre` and `TrainerFisherRaymond` should use `PAL_NPC_GREEN`, not `PAL_NPC_BLUE`
+- [maps/Route13.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/Route13.asm): `TrainerHikerKenny` should use `PAL_NPC_BROWN`, not `PAL_NPC_RED`
+- [maps/Route44.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/Route44.asm): `TrainerBirdKeeperVance1` should use `PAL_NPC_BLUE`, not `PAL_NPC_GREEN`
+- [maps/Route44.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/Route44.asm): `TrainerPokemaniacZach` should use `PAL_NPC_BLUE`, not `PAL_NPC_GREEN`
+- [maps/UnionCaveB2F.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/UnionCaveB2F.asm): `TrainerCooltrainermNick` should use `SPRITE_COOLTRAINER_M`, not `SPRITE_ROCKER`
+- [maps/FuchsiaPokecenter1F.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/FuchsiaPokecenter1F.asm): `FuchsiaPokecenter1FNurseScript` should use `PAL_NPC_RED`, not `PAL_NPC_GREEN`
+- [maps/IlexForest.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/IlexForest.asm): `TrainerBugCatcherWayne` should use `SPRITE_BUG_CATCHER` and `PAL_NPC_BROWN`, not `SPRITE_YOUNGSTER` and `PAL_NPC_GREEN`
 
-Most of the NPCs in [maps/NationalParkBugContest.asm](https://github.com/pret/pokecrystal/blob/master/maps/NationalParkBugContest.asm) and [maps/Route36NationalParkGate.asm](https://github.com/pret/pokecrystal/blob/master/maps/Route36NationalParkGate.asm) are also inconsistent with their trainers from other maps:
+Most of the NPCs in [maps/NationalParkBugContest.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/NationalParkBugContest.asm) and [maps/Route36NationalParkGate.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/Route36NationalParkGate.asm) are also inconsistent with their trainers from other maps:
 
-- `BugCatchingContestant1AScript` and `BugCatchingContestant1BScript`: `BUG_CATCHER DON` from [maps/Route30.asm](https://github.com/pret/pokecrystal/blob/master/maps/Route30.asm) should use `SPRITE_BUG_CATCHER` and `PAL_NPC_BROWN`, not `SPRITE_YOUNGSTER` and `PAL_NPC_RED`
-- `BugCatchingContestant2AScript` and `BugCatchingContestant2BScript`: `BUG_CATCHER ED` from [maps/Route2.asm](https://github.com/pret/pokecrystal/blob/master/maps/Route2.asm) should use `SPRITE_BUG_CATCHER` and `PAL_NPC_BROWN`, not `SPRITE_YOUNGSTER` and `PAL_NPC_GREEN`
-- `BugCatchingContestant3AScript` and `BugCatchingContestant3BScript`: `COOLTRAINERM NICK` from [maps/UnionCaveB2F.asm](https://github.com/pret/pokecrystal/blob/master/maps/UnionCaveB2F.asm) should use `SPRITE_COOLTRAINER_M` and `PAL_NPC_RED`, not `SPRITE_ROCKER` and `PAL_NPC_BLUE`
-- `BugCatchingContestant4AScript` and `BugCatchingContestant4BScript`: `POKEFANM WILLIAM` from [maps/NationalPark.asm](https://github.com/pret/pokecrystal/blob/master/maps/NationalPark.asm) should use `PAL_NPC_RED`, not `PAL_NPC_BROWN`
-- `BugCatchingContestant5AScript` and `BugCatchingContestant5BScript`: `BUG_CATCHER BENNY` from [maps/AzaleaGym.asm](https://github.com/pret/pokecrystal/blob/master/maps/AzaleaGym.asm) should use `SPRITE_BUG_CATCHER` and `PAL_NPC_BROWN`, not `SPRITE_YOUNGSTER` and `PAL_NPC_RED`
-- `BugCatchingContestant7AScript` and `BugCatchingContestant7BScript`: `PICNICKER CINDY` from [maps/FuchsiaGym.asm](https://github.com/pret/pokecrystal/blob/master/maps/FuchsiaGym.asm) should use `PAL_NPC_GREEN`, not `PAL_NPC_BLUE`
-- `BugCatchingContestant8AScript` and `BugCatchingContestant8BScript`: `BUG_CATCHER JOSH` from [maps/AzaleaGym.asm](https://github.com/pret/pokecrystal/blob/master/maps/AzaleaGym.asm) should use `SPRITE_BUG_CATCHER` and `PAL_NPC_BROWN`, not `SPRITE_YOUNGSTER` and `PAL_NPC_RED`
-- `BugCatchingContestant9AScript` and `BugCatchingContestant9BScript`: `YOUNGSTER SAMUEL` from [maps/Route34.asm](https://github.com/pret/pokecrystal/blob/master/maps/Route34.asm) should use `PAL_NPC_BLUE`, not `PAL_NPC_GREEN`
+- `BugCatchingContestant1AScript` and `BugCatchingContestant1BScript`: `BUG_CATCHER DON` from [maps/Route30.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/Route30.asm) should use `SPRITE_BUG_CATCHER` and `PAL_NPC_BROWN`, not `SPRITE_YOUNGSTER` and `PAL_NPC_RED`
+- `BugCatchingContestant2AScript` and `BugCatchingContestant2BScript`: `BUG_CATCHER ED` from [maps/Route2.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/Route2.asm) should use `SPRITE_BUG_CATCHER` and `PAL_NPC_BROWN`, not `SPRITE_YOUNGSTER` and `PAL_NPC_GREEN`
+- `BugCatchingContestant3AScript` and `BugCatchingContestant3BScript`: `COOLTRAINERM NICK` from [maps/UnionCaveB2F.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/UnionCaveB2F.asm) should use `SPRITE_COOLTRAINER_M` and `PAL_NPC_RED`, not `SPRITE_ROCKER` and `PAL_NPC_BLUE`
+- `BugCatchingContestant4AScript` and `BugCatchingContestant4BScript`: `POKEFANM WILLIAM` from [maps/NationalPark.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/NationalPark.asm) should use `PAL_NPC_RED`, not `PAL_NPC_BROWN`
+- `BugCatchingContestant5AScript` and `BugCatchingContestant5BScript`: `BUG_CATCHER BENNY` from [maps/AzaleaGym.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/AzaleaGym.asm) should use `SPRITE_BUG_CATCHER` and `PAL_NPC_BROWN`, not `SPRITE_YOUNGSTER` and `PAL_NPC_RED`
+- `BugCatchingContestant7AScript` and `BugCatchingContestant7BScript`: `PICNICKER CINDY` from [maps/FuchsiaGym.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/FuchsiaGym.asm) should use `PAL_NPC_GREEN`, not `PAL_NPC_BLUE`
+- `BugCatchingContestant8AScript` and `BugCatchingContestant8BScript`: `BUG_CATCHER JOSH` from [maps/AzaleaGym.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/AzaleaGym.asm) should use `SPRITE_BUG_CATCHER` and `PAL_NPC_BROWN`, not `SPRITE_YOUNGSTER` and `PAL_NPC_RED`
+- `BugCatchingContestant9AScript` and `BugCatchingContestant9BScript`: `YOUNGSTER SAMUEL` from [maps/Route34.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/Route34.asm) should use `PAL_NPC_BLUE`, not `PAL_NPC_GREEN`
 
-(Note that [maps/Route8.asm](https://github.com/pret/pokecrystal/blob/master/maps/Route8.asm) has three `BIKER`s, `DWAYNE`, `HARRIS`, and `ZEKE`, that use `PAL_NPC_RED`, `PAL_NPC_GREEN`, and `PAL_NPC_BLUE` instead of `PAL_NPC_BROWN`; this is intentional since they're the "Kanto Pokémon Federation".)
+(Note that [maps/Route8.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/Route8.asm) has three `BIKER`s, `DWAYNE`, `HARRIS`, and `ZEKE`, that use `PAL_NPC_RED`, `PAL_NPC_GREEN`, and `PAL_NPC_BLUE` instead of `PAL_NPC_BROWN`; this is intentional since they're the "Kanto Pokémon Federation".)
 
 (The use of `SPRITE_ROCKER` instead of `SPRITE_COOLTRAINER_M` for `COOLTRAINERM NICK` may also be an intentional reference to the player's brother from the [Space World '97 beta](https://github.com/pret/pokegold-spaceworld).)
 
@@ -2195,7 +2195,7 @@ Most of the NPCs in [maps/NationalParkBugContest.asm](https://github.com/pret/po
 
 Copying two rows causes `BATTLE_BG_EFFECT_TACKLE` to hit the horizontal sprite limit. This fix restores the animation to copy only one row like in Pokémon Gold and Silver.
 
-**Fix:** Edit `BattleAnim_Tackle` in [data/moves/animations.asm](https://github.com/pret/pokecrystal/blob/master/data/moves/animations.asm):
+**Fix:** Edit `BattleAnim_Tackle` in [data/moves/animations.asm](https://github.com/brupokej/temperedcrystal/blob/main/data/moves/animations.asm):
 
 ```diff
  BattleAnim_Tackle:
@@ -2214,7 +2214,7 @@ Copying two rows causes `BATTLE_BG_EFFECT_TACKLE` to hit the horizontal sprite l
 
 ([Video](https://www.youtube.com/watch?v=ojq3xqfRF6I))
 
-**Fix:** Edit `SlotsAction_PayoutAnim` in [engine/games/slot_machine.asm](https://github.com/pret/pokecrystal/blob/master/engine/games/slot_machine.asm):
+**Fix:** Edit `SlotsAction_PayoutAnim` in [engine/games/slot_machine.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/games/slot_machine.asm):
 
 ```diff
  .okay
@@ -2234,7 +2234,7 @@ Copying two rows causes `BATTLE_BG_EFFECT_TACKLE` to hit the horizontal sprite l
 
 ### Team Rocket battle music is not used for Executives or Scientists
 
-**Fix:** Edit `PlayBattleMusic` in [engine/battle/start_battle.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/start_battle.asm):
+**Fix:** Edit `PlayBattleMusic` in [engine/battle/start_battle.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/start_battle.asm):
 
 ```diff
 -; BUG: Team Rocket battle music is not used for Executives or Scientists (see docs/bugs_and_glitches.md)
@@ -2256,7 +2256,7 @@ Copying two rows causes `BATTLE_BG_EFFECT_TACKLE` to hit the horizontal sprite l
 
 If `[wWalkingDirection]` is `STANDING` (`$FF`), this will check `[.EdgeWarps + $ff]`, which happens to be `$3E`.
 
-**Fix:** Edit `DoPlayerMovement.CheckWarp` in [engine/overworld/player_movement.asm](https://github.com/pret/pokecrystal/blob/master/engine/overworld/player_movement.asm):
+**Fix:** Edit `DoPlayerMovement.CheckWarp` in [engine/overworld/player_movement.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/overworld/player_movement.asm):
 
 ```diff
  .CheckWarp:
@@ -2287,7 +2287,7 @@ If `[wWalkingDirection]` is `STANDING` (`$FF`), this will check `[.EdgeWarps + $
 
 The exact cause of this bug is unknown.
 
-**Workaround:** Edit `DexEntryScreen_MenuActionJumptable.Cry` in [engine/pokedex/pokedex.asm](https://github.com/pret/pokecrystal/blob/master/engine/pokedex/pokedex.asm):
+**Workaround:** Edit `DexEntryScreen_MenuActionJumptable.Cry` in [engine/pokedex/pokedex.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/pokedex/pokedex.asm):
 
 ```diff
  .Cry:
@@ -2306,7 +2306,7 @@ The exact cause of this bug is unknown.
 
 ### `SFX_RUN` does not play correctly when a wild Pokémon flees from battle
 
-**Fix:** Edit `WildFled_EnemyFled_LinkBattleCanceled` in [engine/battle/core.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/core.asm):
+**Fix:** Edit `WildFled_EnemyFled_LinkBattleCanceled` in [engine/battle/core.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/core.asm):
 
 ```diff
 -; BUG: SFX_RUN does not play correctly when a wild Pokemon flees from battle (see docs/bugs_and_glitches.md)
@@ -2323,7 +2323,7 @@ The exact cause of this bug is unknown.
 
 ([Video](https://www.youtube.com/watch?v=o54VjpAEoO8))
 
-**Fix:** Edit `_BoostedExpPointsText` and `_ExpPointsText` in [data/text/common_2.asm](https://github.com/pret/pokecrystal/blob/master/data/text/common_2.asm):
+**Fix:** Edit `_BoostedExpPointsText` and `_ExpPointsText` in [data/text/common_2.asm](https://github.com/brupokej/temperedcrystal/blob/main/data/text/common_2.asm):
 
 ```diff
  _BoostedExpPointsText::
@@ -2349,7 +2349,7 @@ The exact cause of this bug is unknown.
 
 ### Only the first three evolution entries can have Stone compatibility reported correctly
 
-**Workaround:** Edit `PlacePartyMonEvoStoneCompatibility.DetermineCompatibility` in [engine/pokemon/party_menu.asm](https://github.com/pret/pokecrystal/blob/master/engine/pokemon/party_menu.asm):
+**Workaround:** Edit `PlacePartyMonEvoStoneCompatibility.DetermineCompatibility` in [engine/pokemon/party_menu.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/pokemon/party_menu.asm):
 
 ```diff
  .DetermineCompatibility:
@@ -2374,7 +2374,7 @@ This supports up to six entries.
 
 ### `EVOLVE_STAT` can break Stone compatibility reporting
 
-**Fix:** Edit `PlacePartyMonEvoStoneCompatibility.DetermineCompatibility` in [engine/pokemon/party_menu.asm](https://github.com/pret/pokecrystal/blob/master/engine/pokemon/party_menu.asm):
+**Fix:** Edit `PlacePartyMonEvoStoneCompatibility.DetermineCompatibility` in [engine/pokemon/party_menu.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/pokemon/party_menu.asm):
 
 ```diff
  .loop2
@@ -2397,7 +2397,7 @@ This supports up to six entries.
 
 ([Video](https://www.youtube.com/watch?v=iHkWubvxmSg))
 
-**Fix:** Edit `_HallOfFamePC.DisplayMonAndStrings` in [engine/events/halloffame.asm](https://github.com/pret/pokecrystal/blob/master/engine/events/halloffame.asm):
+**Fix:** Edit `_HallOfFamePC.DisplayMonAndStrings` in [engine/events/halloffame.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/events/halloffame.asm):
 
 ```diff
 -; BUG: A "HOF Master!" title for 200-Time Famers is defined but inaccessible (see docs/bugs_and_glitches.md)
@@ -2422,7 +2422,7 @@ This supports up to six entries.
 
 **Fix:**
 
-Edit `DragonsDen1F_MapScripts` in [maps/DragonsDen1F.asm](https://github.com/pret/pokecrystal/blob/master/maps/DragonsDen1F.asm):
+Edit `DragonsDen1F_MapScripts` in [maps/DragonsDen1F.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/DragonsDen1F.asm):
 
 ```diff
  	def_callbacks
@@ -2433,7 +2433,7 @@ Edit `DragonsDen1F_MapScripts` in [maps/DragonsDen1F.asm](https://github.com/pre
 +	endcallback
 ```
 
-And edit [maps/DragonsDenB1F.asm](https://github.com/pret/pokecrystal/blob/master/maps/DragonsDenB1F.asm):
+And edit [maps/DragonsDenB1F.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/DragonsDenB1F.asm):
 
 ```diff
  DragonsDenB1F_ClairScene:
@@ -2445,7 +2445,7 @@ And edit [maps/DragonsDenB1F.asm](https://github.com/pret/pokecrystal/blob/maste
 
 Subtracting `$FF` from `$FF` fails to set the carry flag, which results in a 0.4% chance that Daisy's grooming will not affect your Pokémon's happiness.
 
-This is a bug with `HaircutOrGrooming` in [engine/events/haircut.asm](https://github.com/pret/pokecrystal/blob/master/engine/events/haircut.asm):
+This is a bug with `HaircutOrGrooming` in [engine/events/haircut.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/events/haircut.asm):
 
 ```asm
 .loop
@@ -2475,7 +2475,7 @@ CopyPokemonName_Buffer1_Buffer3:
 	jp CopyBytes
 ```
 
-**Fix:** Edit  [data/events/happiness_probabilities.asm](https://github.com/pret/pokecrystal/blob/master/data/events/happiness_probabilities.asm):
+**Fix:** Edit  [data/events/happiness_probabilities.asm](https://github.com/brupokej/temperedcrystal/blob/main/data/events/happiness_probabilities.asm):
 
 ```diff
  HappinessData_DaisysGrooming:
@@ -2490,7 +2490,7 @@ CopyPokemonName_Buffer1_Buffer3:
 
 `cp HIGH(1024)` should be `cp 3`, since 1024 mm = 3'4", but `HIGH(1024)` = 4.
 
-**Fix:** Edit `LoadEnemyMon.CheckMagikarpArea` in [engine/battle/core.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/core.asm):
+**Fix:** Edit `LoadEnemyMon.CheckMagikarpArea` in [engine/battle/core.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/core.asm):
 
 ```diff
  .CheckMagikarpArea:
@@ -2521,7 +2521,7 @@ CopyPokemonName_Buffer1_Buffer3:
 - `cp LOW(1616)` should be `cp 4`, since 1616 mm = 5'4", but `LOW(1616)` = 80.
 - `cp LOW(1600)` should be `cp 3`, since 1600 mm = 5'3", but `LOW(1600)` = 64.
 
-**Fix:** Edit `LoadEnemyMon.CheckMagikarpArea` in [engine/battle/core.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/core.asm):
+**Fix:** Edit `LoadEnemyMon.CheckMagikarpArea` in [engine/battle/core.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle/core.asm):
 
 ```diff
  ; Get Magikarp's length
@@ -2562,7 +2562,7 @@ CopyPokemonName_Buffer1_Buffer3:
 
 ### Magikarp lengths can be miscalculated
 
-**Fix:** Edit `CalcMagikarpLength.BCLessThanDE` in [engine/events/magikarp.asm](https://github.com/pret/pokecrystal/blob/master/engine/events/magikarp.asm):
+**Fix:** Edit `CalcMagikarpLength.BCLessThanDE` in [engine/events/magikarp.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/events/magikarp.asm):
 
 ```diff
  .BCLessThanDE:
@@ -2583,7 +2583,7 @@ CopyPokemonName_Buffer1_Buffer3:
 
 This bug can allow you to talk to Eusine in Celadon City and encounter Ho-Oh with only traded legendary beasts.
 
-**Fix:** Edit `CheckOwnMon` in [engine/pokemon/search_owned.asm](https://github.com/pret/pokecrystal/blob/master/engine/pokemon/search_owned.asm):
+**Fix:** Edit `CheckOwnMon` in [engine/pokemon/search_owned.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/pokemon/search_owned.asm):
 
 ```diff
  	; check OT
@@ -2614,7 +2614,7 @@ This bug can allow you to talk to Eusine in Celadon City and encounter Ho-Oh wit
 
 This bug can prevent you from talking to Eusine in Celadon City or encountering Ho-Oh when a caught legendary beast is in the Day-Care.
 
-**Fix:** Edit `CheckOwnMonAnywhere` in [engine/pokemon/search_owned.asm](https://github.com/pret/pokecrystal/blob/master/engine/pokemon/search_owned.asm):
+**Fix:** Edit `CheckOwnMonAnywhere` in [engine/pokemon/search_owned.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/pokemon/search_owned.asm):
 
 ```diff
 -; BUG: CheckOwnMon does not check the Day-Care (see docs/bugs_and_glitches.md)
@@ -2639,7 +2639,7 @@ This bug can prevent you from talking to Eusine in Celadon City or encountering 
 
 The `phonecall` script command calls the `PhoneCall` routine, which calls the `BrokenPlaceFarString` routine; this switches banks without being in bank 0, so it would start running arbitrary data as code.
 
-**Fix:** Edit `PhoneCall.CallerTextboxWithName` in [engine/phone/phone.asm](https://github.com/pret/pokecrystal/blob/master/engine/phone/phone.asm):
+**Fix:** Edit `PhoneCall.CallerTextboxWithName` in [engine/phone/phone.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/phone/phone.asm):
 
 ```diff
 -; BUG: The unused phonecall script command may crash (see docs/bugs_and_glitches.md)
@@ -2660,7 +2660,7 @@ You can also delete the now-unused `BrokenPlaceFarString` routine in the same fi
 
 ### Mania uses wrong dialogue for trying to return Shuckie with no other Pokémon
 
-**Fix**: Edit `ManiaScript.returnshuckie` in [maps/ManiasHouse.asm](https://github.com/pret/pokecrystal/blob/master/maps/ManiasHouse.asm):
+**Fix**: Edit `ManiaScript.returnshuckie` in [maps/ManiasHouse.asm](https://github.com/brupokej/temperedcrystal/blob/main/maps/ManiasHouse.asm):
 
 ```diff
 -; BUG: Mania uses wrong dialogue for trying to return Shuckie with no other Pokémon (see docs/bugs_and_glitches.md)
@@ -2681,7 +2681,7 @@ This allows Pokémon to be duplicated, among other effects. It does not have a s
 
 ### `ScriptCall` can overflow `wScriptStack` and crash
 
-**Fix:** Edit `ScriptCall` in [engine/overworld/scripting.asm](https://github.com/pret/pokecrystal/blob/master/engine/overworld/scripting.asm):
+**Fix:** Edit `ScriptCall` in [engine/overworld/scripting.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/overworld/scripting.asm):
 
 ```diff
  ScriptCall:
@@ -2720,7 +2720,7 @@ This allows Pokémon to be duplicated, among other effects. It does not have a s
 
 ### `LoadSpriteGFX` does not limit the capacity of `UsedSprites`
 
-**Fix:** Edit `LoadSpriteGFX` in [engine/overworld/overworld.asm](https://github.com/pret/pokecrystal/blob/master/engine/overworld/overworld.asm):
+**Fix:** Edit `LoadSpriteGFX` in [engine/overworld/overworld.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/overworld/overworld.asm):
 
 ```diff
  LoadSpriteGFX:
@@ -2753,7 +2753,7 @@ This allows Pokémon to be duplicated, among other effects. It does not have a s
 
 ### `ChooseWildEncounter` doesn't really validate the wild Pokémon species
 
-**Fix:** Edit `ChooseWildEncounter` in [engine/overworld/wildmons.asm](https://github.com/pret/pokecrystal/blob/master/engine/overworld/wildmons.asm):
+**Fix:** Edit `ChooseWildEncounter` in [engine/overworld/wildmons.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/overworld/wildmons.asm):
 
 ```diff
  .ok
@@ -2773,7 +2773,7 @@ This allows Pokémon to be duplicated, among other effects. It does not have a s
 
 ### `RandomUnseenWildMon` always picks a morning Pokémon species
 
-**Fix:** Edit `RandomUnseenWildMon` in [engine/overworld/wildmons.asm](https://github.com/pret/pokecrystal/blob/master/engine/overworld/wildmons.asm):
+**Fix:** Edit `RandomUnseenWildMon` in [engine/overworld/wildmons.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/overworld/wildmons.asm):
 
 ```diff
  .GetGrassmon:
@@ -2794,7 +2794,7 @@ This allows Pokémon to be duplicated, among other effects. It does not have a s
 
 If `IsInArray` returns `nc`, data at `bc` will be executed as code.
 
-**Fix:** Edit `TryObjectEvent` in [engine/overworld/events.asm](https://github.com/pret/pokecrystal/blob/master/engine/overworld/events.asm):
+**Fix:** Edit `TryObjectEvent` in [engine/overworld/events.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/overworld/events.asm):
 
 ```diff
 -; BUG: TryObjectEvent arbitrary code execution (see docs/bugs_and_glitches.md)
@@ -2820,7 +2820,7 @@ If `IsInArray` returns `nc`, data at `bc` will be executed as code.
 
 ### `ReadObjectEvents` overflows into `wObjectMasks`
 
-**Fix:** Edit `ReadObjectEvents` in [home/map.asm](https://github.com/pret/pokecrystal/blob/master/home/map.asm):
+**Fix:** Edit `ReadObjectEvents` in [home/map.asm](https://github.com/brupokej/temperedcrystal/blob/main/home/map.asm):
 
 ```diff
 -; get NUM_OBJECTS - [wCurMapObjectEventCount]
@@ -2851,7 +2851,7 @@ If `IsInArray` returns `nc`, data at `bc` will be executed as code.
 
 ### `ClearWRAM` only clears WRAM bank 1
 
-**Fix:** Edit `ClearWRAM` in [home/init.asm](https://github.com/pret/pokecrystal/blob/master/home/init.asm):
+**Fix:** Edit `ClearWRAM` in [home/init.asm](https://github.com/brupokej/temperedcrystal/blob/main/home/init.asm):
 
 ```diff
  ClearWRAM::
@@ -2878,7 +2878,7 @@ If `IsInArray` returns `nc`, data at `bc` will be executed as code.
 
 ### `BattleAnimCmd_ClearObjs` only clears the first 6⅔ objects
 
-**Fix:** Edit `BattleAnimCmd_ClearObjs` in [engine/battle_anims/anim_commands.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle_anims/anim_commands.asm):
+**Fix:** Edit `BattleAnimCmd_ClearObjs` in [engine/battle_anims/anim_commands.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/battle_anims/anim_commands.asm):
 
 ```diff
  BattleAnimCmd_ClearObjs:
@@ -2901,7 +2901,7 @@ If `IsInArray` returns `nc`, data at `bc` will be executed as code.
 
 This bug allows all the options to be updated at once if the left or right buttons are pressed on the same frame that the options menu is opened.
 
-**Fix:** Edit `_Option` in [engine/menus/options_menu.asm](https://github.com/pret/pokecrystal/blob/master/engine/menus/options_menu.asm):
+**Fix:** Edit `_Option` in [engine/menus/options_menu.asm](https://github.com/brupokej/temperedcrystal/blob/main/engine/menus/options_menu.asm):
 
 ```diff
  _Option:

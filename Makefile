@@ -1,6 +1,6 @@
 roms := \
-	pokecrystal.gbc \
-	pokecrystal_debug.gbc
+	temperedcrystal.gbc \
+	temperedcrystal_debug.gbc
 
 rom_obj := \
 	audio.o \
@@ -21,8 +21,8 @@ rom_obj := \
 	lib/mobile/main.o \
 	lib/mobile/mail.o
 
-pokecrystal_obj         := $(rom_obj:.o=.o)
-pokecrystal_debug_obj   := $(rom_obj:.o=_debug.o)
+temperedcrystal_obj         := $(rom_obj:.o=.o)
+temperedcrystal_debug_obj   := $(rom_obj:.o=_debug.o)
 
 
 ### Build tools
@@ -54,8 +54,8 @@ RGBGFXFLAGS  ?= -Weverything
 	tools
 
 all: crystal
-crystal:         pokecrystal.gbc
-crystal_debug:   pokecrystal_debug.gbc
+crystal:         temperedcrystal.gbc
+crystal_debug:   temperedcrystal_debug.gbc
 
 clean: tidy
 	find gfx \
@@ -76,8 +76,8 @@ tidy:
 	$(RM) $(roms) \
 	      $(roms:.gbc=.sym) \
 	      $(roms:.gbc=.map) \
-	      $(pokecrystal_obj) \
-	      $(pokecrystal_debug_obj) \
+	      $(temperedcrystal_obj) \
+	      $(temperedcrystal_debug_obj) \
 	      rgbdscheck.o
 	$(MAKE) clean -C tools/
 
@@ -91,8 +91,8 @@ ifeq ($(DEBUG),1)
 RGBASMFLAGS += -E
 endif
 
-$(pokecrystal_obj):         RGBASMFLAGS +=
-$(pokecrystal_debug_obj):   RGBASMFLAGS += -D _DEBUG
+$(temperedcrystal_obj):         RGBASMFLAGS +=
+$(temperedcrystal_debug_obj):   RGBASMFLAGS += -D _DEBUG
 
 rgbdscheck.o: rgbdscheck.asm
 	$(RGBASM) -o $@ $<
@@ -113,15 +113,15 @@ $1: $2 $$(shell tools/scan_includes $2) $(preinclude_deps) | rgbdscheck.o
 endef
 
 # Dependencies for shared objects
-$(foreach obj, $(pokecrystal_obj), $(eval $(call DEP,$(obj),$(obj:.o=.asm))))
-$(foreach obj, $(pokecrystal_debug_obj), $(eval $(call DEP,$(obj),$(obj:_debug.o=.asm))))
+$(foreach obj, $(temperedcrystal_obj), $(eval $(call DEP,$(obj),$(obj:.o=.asm))))
+$(foreach obj, $(temperedcrystal_debug_obj), $(eval $(call DEP,$(obj),$(obj:_debug.o=.asm))))
 
 endif
 
 
 RGBFIXFLAGS += -Cjv -t PM_CRYSTAL -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3 -p 0
-pokecrystal.gbc:         RGBFIXFLAGS += -i BYTE -n 0
-pokecrystal_debug.gbc:   RGBFIXFLAGS += -i BYTE -n 0
+temperedcrystal.gbc:         RGBFIXFLAGS += -i BYTE -n 0
+temperedcrystal_debug.gbc:   RGBFIXFLAGS += -i BYTE -n 0
 
 %.gbc: $$(%_obj) layout.link
 	$(RGBLINK) $(RGBLINKFLAGS) -l layout.link -n $*.sym -m $*.map -o $@ $(filter %.o,$^)
