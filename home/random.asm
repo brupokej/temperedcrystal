@@ -13,6 +13,31 @@ Random::
 
 	push bc
 
+if DEF(TEMPERED_FIXED_RNG)
+TemperedFixedRNG::
+; Tempered: In tests, use a pseudorandom number generator.
+; hRandomAdd = hRandomAdd * 5 + 1
+	ldh a, [hRandomAdd]
+	ld b, a
+	add a
+	add a
+	add b
+	inc a
+	ldh [hRandomAdd], a
+; hRandomSub = hRandomSub * 13 + 7
+	ldh a, [hRandomSub]
+	ld b, a
+	add a
+	add b
+	add a
+	add a
+	add b
+	add 7
+	ldh [hRandomSub], a
+	pop bc
+	ret
+endc
+
 	ldh a, [rDIV]
 	ld b, a
 	ldh a, [hRandomAdd]

@@ -1,6 +1,7 @@
 roms := \
 	temperedcrystal.gbc \
-	temperedcrystal_debug.gbc
+	temperedcrystal_debug.gbc \
+	temperedcrystal_test.gbc
 
 rom_obj := \
 	audio.o \
@@ -23,6 +24,7 @@ rom_obj := \
 
 temperedcrystal_obj         := $(rom_obj:.o=.o)
 temperedcrystal_debug_obj   := $(rom_obj:.o=_debug.o)
+temperedcrystal_test_obj    := $(rom_obj:.o=_test.o)
 
 
 ### Build tools
@@ -49,6 +51,7 @@ RGBGFXFLAGS  ?= -Weverything
 	all \
 	crystal \
 	crystal_debug \
+	crystal_test \
 	clean \
 	tidy \
 	freespace \
@@ -57,6 +60,7 @@ RGBGFXFLAGS  ?= -Weverything
 all: crystal
 crystal:         temperedcrystal.gbc
 crystal_debug:   temperedcrystal_debug.gbc
+crystal_test:    temperedcrystal_test.gbc
 
 clean: tidy
 	find gfx \
@@ -79,6 +83,7 @@ tidy:
 	      $(roms:.gbc=.map) \
 	      $(temperedcrystal_obj) \
 	      $(temperedcrystal_debug_obj) \
+	      $(temperedcrystal_test_obj) \
 	      rgbdscheck.o
 	$(MAKE) clean -C tools/
 
@@ -97,6 +102,7 @@ endif
 
 $(temperedcrystal_obj):         RGBASMFLAGS += -D _CRYSTAL11 -D TEMPERED_NO_RTC
 $(temperedcrystal_debug_obj):   RGBASMFLAGS += -D _CRYSTAL11 -D TEMPERED_NO_RTC -D _DEBUG
+$(temperedcrystal_test_obj):    RGBASMFLAGS += -D _CRYSTAL11 -D TEMPERED_NO_RTC -D TEMPERED_FIXED_RNG
 
 rgbdscheck.o: rgbdscheck.asm
 	$(RGBASM) -o $@ $<
@@ -119,6 +125,7 @@ endef
 # Dependencies for shared objects
 $(foreach obj, $(temperedcrystal_obj), $(eval $(call DEP,$(obj),$(obj:.o=.asm))))
 $(foreach obj, $(temperedcrystal_debug_obj), $(eval $(call DEP,$(obj),$(obj:_debug.o=.asm))))
+$(foreach obj, $(temperedcrystal_test_obj), $(eval $(call DEP,$(obj),$(obj:_test.o=.asm))))
 
 endif
 
@@ -126,6 +133,7 @@ endif
 RGBFIXFLAGS += -Cjv -t PKTCRYSTAL -k 01 -l 0x33 -m MBC5+RAM+BATTERY -r 5 -p 0
 temperedcrystal.gbc:         RGBFIXFLAGS += -i PKTC -n 1
 temperedcrystal_debug.gbc:   RGBFIXFLAGS += -i PKTC -n 1
+temperedcrystal_test.gbc:    RGBFIXFLAGS += -i PKTC -n 1
 
 %.gbc: $$(%_obj) layout.link
 	$(RGBLINK) $(RGBLINKFLAGS) -l layout.link -n $*.sym -m $*.map -o $@ $(filter %.o,$^)

@@ -65,6 +65,7 @@ VBlank_Normal::
 	ld hl, hVBlankCounter
 	inc [hl]
 
+if !DEF(TEMPERED_FIXED_RNG)
 	; advance random variables
 	ldh a, [rDIV]
 	ld b, a
@@ -77,6 +78,7 @@ VBlank_Normal::
 	ldh a, [hRandomSub]
 	sbc b
 	ldh [hRandomSub], a
+endc
 
 	ldh a, [hROMBank]
 	ldh [hROMBankBackup], a
