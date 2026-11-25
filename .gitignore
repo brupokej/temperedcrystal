@@ -25,6 +25,9 @@ gfx/pokemon/*/frames.asm
 # tool binaries
 *.exe
 
+# tool outputs
+bank_ends.txt
+
 # precompiled python
 *.pyc
 *$py.class

@@ -38,6 +38,11 @@ jobs:
           make DEBUG=1 -j$(nproc)
           .github/checkdiff.sh
 
+      - name: Report free space
+        run: |
+          tools/bankends -q temperedcrystal.map
+          sed -n '/^SUMMARY:/,/^$/p' temperedcrystal.map
+
       - name: Checkout symbols
         if: ${{ github.repository_owner == 'brupokej' && github.event_name == 'push' }}
         uses: actions/checkout@v7

@@ -28,7 +28,9 @@ Planned. None yet.
 
 [polishedcrystal](https://github.com/Rangi42/polishedcrystal) by [Rangi42](https://github.com/Rangi42)
 
-Planned. None yet.
+- `make freespace` and its `bankends` tool:
+  [43c2865ad](https://github.com/Rangi42/polishedcrystal/commit/43c2865ade42f8de8db431a4688de4f81967b5e4),
+  [44f986f09](https://github.com/Rangi42/polishedcrystal/commit/44f986f09b0edb31b91f5f05b5c14313b93f9a18)
 
 
 ## Features

@@ -51,6 +51,7 @@ RGBGFXFLAGS  ?= -Weverything
 	crystal_debug \
 	clean \
 	tidy \
+	freespace \
 	tools
 
 all: crystal
@@ -80,6 +81,9 @@ tidy:
 	      $(temperedcrystal_debug_obj) \
 	      rgbdscheck.o
 	$(MAKE) clean -C tools/
+
+freespace: crystal tools/bankends
+	tools/bankends temperedcrystal.map > bank_ends.txt
 
 tools:
 	$(MAKE) -C tools/
