@@ -95,8 +95,8 @@ ifeq ($(DEBUG),1)
 RGBASMFLAGS += -E
 endif
 
-$(temperedcrystal_obj):         RGBASMFLAGS +=
-$(temperedcrystal_debug_obj):   RGBASMFLAGS += -D _DEBUG
+$(temperedcrystal_obj):         RGBASMFLAGS += -D _CRYSTAL11 -D TEMPERED_NO_RTC
+$(temperedcrystal_debug_obj):   RGBASMFLAGS += -D _CRYSTAL11 -D TEMPERED_NO_RTC -D _DEBUG
 
 rgbdscheck.o: rgbdscheck.asm
 	$(RGBASM) -o $@ $<
@@ -123,9 +123,9 @@ $(foreach obj, $(temperedcrystal_debug_obj), $(eval $(call DEP,$(obj),$(obj:_deb
 endif
 
 
-RGBFIXFLAGS += -Cjv -t PM_CRYSTAL -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3 -p 0
-temperedcrystal.gbc:         RGBFIXFLAGS += -i BYTE -n 0
-temperedcrystal_debug.gbc:   RGBFIXFLAGS += -i BYTE -n 0
+RGBFIXFLAGS += -Cjv -t PKTCRYSTAL -k 01 -l 0x33 -m MBC5+RAM+BATTERY -r 5 -p 0
+temperedcrystal.gbc:         RGBFIXFLAGS += -i PKTC -n 1
+temperedcrystal_debug.gbc:   RGBFIXFLAGS += -i PKTC -n 1
 
 %.gbc: $$(%_obj) layout.link
 	$(RGBLINK) $(RGBLINKFLAGS) -l layout.link -n $*.sym -m $*.map -o $@ $(filter %.o,$^)
