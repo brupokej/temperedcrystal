@@ -1,0 +1,4 @@
+setup = """
+	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	warp VIOLET_GYM, 5, 3
+"""

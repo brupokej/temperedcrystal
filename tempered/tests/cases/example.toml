@@ -1,0 +1,17 @@
+setup = """
+	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	givepoke PIKACHU, 13, BERRY
+	loadmem wPartyMon1Moves + 1, THUNDERBOLT
+	loadmem wPartyMon1PP + 1, 15
+	warp VIOLET_GYM, 5, 3
+"""
+
+[[steps]]
+walk = "DOWN 1 LEFT 1 UP 2 RIGHT 1"
+
+[[steps]]
+face = "UP"
+
+[[steps]]
+press = "A"
+until_text = "FIGHT"

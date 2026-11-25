@@ -39,3 +39,6 @@ bank_ends.txt
 *.sn*
 *.sa*
 *.sg1
+
+# Tempered Crystal
+tempered/tests/results/
