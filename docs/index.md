@@ -21,7 +21,6 @@ Hard-mode Crystal, based on the [pokecrystal](https://github.com/pret/pokecrysta
 - [battle_anim_commands.md](battle_anim_commands.md)
 - [move_effect_commands.md](move_effect_commands.md)
 - [music_commands.md](music_commands.md)
-- [vc_patch.md](vc_patch.md)
 
 
 ## Other subsystems

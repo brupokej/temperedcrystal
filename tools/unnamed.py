@@ -48,7 +48,7 @@ objects = []
 if args.rootdir:
 	for line in subprocess.Popen(['make', '-C', args.rootdir, '-s', '-p', 'DEBUG=1'],
 			stdout=subprocess.PIPE).stdout.read().decode().split('\n'):
-		for version in ['', '11', '_au', '_debug', '11_debug', '11_vc']:
+		for version in ['', '_debug']:
 			if line.startswith(f'pokecrystal{version}_obj :='):
 				objects.extend(line[len(f'pokecrystal{version}_obj :='):].strip().split())
 	if not objects:
