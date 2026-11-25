@@ -2,8 +2,6 @@
 
 These instructions explain how to set up the tools required to build **pokecrystal**, including [**rgbds**](https://github.com/gbdev/rgbds), which assembles the source files into a ROM.
 
-If you run into trouble, ask for help on IRC or Discord (see [README.md](README.md)).
-
 
 ## Windows 10, 11, or newer
 
