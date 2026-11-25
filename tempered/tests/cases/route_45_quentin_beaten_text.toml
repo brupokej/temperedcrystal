@@ -10,4 +10,4 @@ face = "UP"
 
 [[steps]]
 press = "A"
-until_text = "BATTLE TOWER"
+until_text = "enough yet…"

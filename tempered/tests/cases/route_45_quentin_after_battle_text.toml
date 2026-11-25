@@ -9,4 +9,4 @@ face = "UP"
 
 [[steps]]
 press = "A"
-until_text = "there, but"
+until_text = "here, but…"

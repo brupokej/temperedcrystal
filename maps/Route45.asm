@@ -512,16 +512,16 @@ CamperQuentinSeenText:
 	done
 
 CamperQuentinBeatenText:
-	text "I was tough at the"
-	line "BATTLE TOWER…"
+	text "I'm not tough"
+	line "enough yet…"
 	done
 
 CamperQuentinAfterBattleText:
-	text "Have you been to"
-	line "the BATTLE TOWER?"
+	text "I train on this"
+	line "road every day."
 
 	para "I never, ever lose"
-	line "there, but…"
+	line "here, but…"
 	done
 
 Route45SignText:
