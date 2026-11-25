@@ -11,6 +11,29 @@ Timer:: ; unreferenced
 	pop af
 	reti
 
+if DEF(TEMPERED_NO_RTC)
+UpdateTime::
+; Tempered: The clock is frozen at Friday 10:00.
+	ld a, FRIDAY
+	ld [wCurDay], a
+	ld a, DAY_HOUR
+	ldh [hHours], a
+	xor a
+	ldh [hMinutes], a
+	ldh [hSeconds], a
+	farcall GetTimeOfDay
+	ret
+
+FixDays::
+; Tempered: There are no time overflows to fix.
+	xor a
+	ret
+
+GetClock::
+LatchClock::
+SetClock::
+	ret
+else
 LatchClock::
 ; latch clock counter data
 	ld a, 0
@@ -174,6 +197,8 @@ FixTime::
 	ld [wCurDay], a
 	ret
 
+endc
+
 InitTimeOfDay::
 	xor a
 	ld [wStringBuffer2], a
@@ -209,6 +234,7 @@ ClearClock::
 	ldh [hRTCDayHi], a
 	ret
 
+if !DEF(TEMPERED_NO_RTC)
 SetClock::
 ; set clock data from hram
 
@@ -256,7 +282,9 @@ SetClock::
 	call CloseSRAM ; unlatch clock, disable clock r/w
 	ret
 
-ClearRTCStatus:: ; unreferenced
+endc
+
+ClearRTCStatus::
 ; clear sRTCStatusFlags
 	xor a
 	push af

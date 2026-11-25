@@ -625,7 +625,9 @@ Continue_DisplayGameTime:
 	jp PrintNum
 
 OakSpeech:
+if !DEF(TEMPERED_NO_RTC)
 	farcall InitClock
+endc
 	call RotateFourPalettesLeft
 	call ClearTilemap
 

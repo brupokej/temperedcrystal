@@ -23,9 +23,11 @@ endc
 .valid:
 ; switch to sram bank a
 	push af
+if !DEF(TEMPERED_NO_RTC)
 ; latch clock data
 	ld a, 1
 	ld [rRTCLATCH], a
+endc
 ; enable sram/clock write
 	ld a, RAMG_SRAM_ENABLE
 	ld [rRAMG], a
@@ -37,8 +39,10 @@ endc
 CloseSRAM::
 	push af
 	ld a, RAMG_SRAM_DISABLE
+if !DEF(TEMPERED_NO_RTC)
 ; reset clock latch for next time
 	ld [rRTCLATCH], a
+endc
 ; disable sram/clock write
 	ld [rRAMG], a
 	pop af

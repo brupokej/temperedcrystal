@@ -1418,6 +1418,11 @@ DebugRoomMenu_RTCEdit_UpdateClock:
 DebugRoom_DayHTimeString:
 	db "DAY     H<LF>TIME@"
 
+if DEF(TEMPERED_NO_RTC)
+DebugRoom_GetClock:
+DebugRoom_SetClock:
+	ret
+else
 DebugRoom_GetClock:
 	ld a, RAMG_SRAM_ENABLE
 	ld [rRAMG], a
@@ -1453,6 +1458,7 @@ DebugRoom_SetClock:
 	jr nz, .loop
 	call CloseSRAM
 	ret
+endc
 
 DebugRoomMenu_RTCEdit_Page1Values:
 	db 5

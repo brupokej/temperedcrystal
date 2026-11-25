@@ -1,3 +1,8 @@
+if DEF(TEMPERED_NO_RTC)
+StopRTC:
+StartRTC:
+	ret
+else
 StopRTC: ; unreferenced
 	ld a, RAMG_SRAM_ENABLE
 	ld [rRAMG], a
@@ -21,6 +26,8 @@ StartRTC:
 	ld [rRTCREG], a
 	call CloseSRAM
 	ret
+
+endc
 
 GetTimeOfDay::
 ; get time of day based on the current hour
@@ -73,6 +80,10 @@ StageRTCTimeForSave:
 	ld [hli], a
 	ret
 
+if DEF(TEMPERED_NO_RTC)
+SaveRTC:
+	jp ClearRTCStatus
+else
 SaveRTC:
 	ld a, RAMG_SRAM_ENABLE
 	ld [rRAMG], a
@@ -88,7 +99,12 @@ SaveRTC:
 	call CloseSRAM
 	ret
 
+endc
+
 StartClock::
+if DEF(TEMPERED_NO_RTC)
+	ret
+endc
 	call GetClock
 	call _FixDays
 	call FixDays

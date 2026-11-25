@@ -143,7 +143,9 @@ Init::
 	farcall StartClock
 
 	xor a ; RAMG_SRAM_DISABLE
+if !DEF(TEMPERED_NO_RTC)
 	ld [rRTCLATCH], a
+endc
 	ld [rRAMG], a
 
 	ldh a, [hCGB]
