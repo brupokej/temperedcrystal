@@ -113,21 +113,7 @@ MainMenu_GetWhichMenu:
 	ret
 
 .next
-	ldh a, [hCGB]
-	cp TRUE
 	ld a, MAINMENU_CONTINUE
-	ret nz
-	ld a, BANK(sNumDailyMysteryGiftPartnerIDs)
-	call OpenSRAM
-	ld a, [sNumDailyMysteryGiftPartnerIDs]
-	cp -1 ; locked?
-	call CloseSRAM
-	jr nz, .mystery_gift
-	ld a, MAINMENU_CONTINUE
-	ret
-
-.mystery_gift
-	ld a, MAINMENU_MYSTERY
 	ret
 
 MainMenuJoypadLoop:
