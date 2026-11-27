@@ -32,7 +32,3 @@ setup = """
 
 [[steps]]
 face = "UP"
-
-[[steps]]
-press = "A"
-until_text = "printed out."

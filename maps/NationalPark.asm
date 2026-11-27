@@ -11,7 +11,6 @@
 	const NATIONALPARK_POKEFAN_M
 	const NATIONALPARK_LASS2
 	const NATIONALPARK_POKE_BALL1
-	const NATIONALPARK_GAMEBOY_KID
 	const NATIONALPARK_POKE_BALL2
 
 NationalPark_MapScripts:
@@ -58,15 +57,6 @@ NationalParkPersian:
 	cry PERSIAN
 	waitbutton
 	closetext
-	end
-
-NationalParkGameboyKidScript:
-	faceplayer
-	opentext
-	writetext NationalParkGameboyKidText
-	waitbutton
-	closetext
-	turnobject NATIONALPARK_GAMEBOY_KID, DOWN
 	end
 
 TrainerSchoolboyJack1:
@@ -293,9 +283,6 @@ NationalParkRelaxationSquareSign:
 NationalParkBattleNoticeSign:
 	jumptext NationalParkBattleNoticeText
 
-NationalParkTrainerTipsSign:
-	jumptext NationalParkTrainerTipsText
-
 NationalParkParlyzHeal:
 	itemball PARLYZ_HEAL
 
@@ -376,17 +363,6 @@ NationalParkTeacher2Text:
 
 NationalParkPersianText:
 	text "PERSIAN: Fufushaa!"
-	done
-
-NationalParkGameboyKidText:
-	text "I'm printing out"
-	line "my #DEX."
-
-	para "You can also print"
-	line "out stuff like"
-
-	para "MAIL and your PC"
-	line "BOXES."
 	done
 
 SchoolboyJack1SeenText:
@@ -503,14 +479,6 @@ NationalParkBattleNoticeText:
 	line "WARDEN'S OFFICE"
 	done
 
-NationalParkTrainerTipsText:
-	text "TRAINER TIPS"
-
-	para "Print out MAIL by"
-	line "opening it then"
-	cont "pressing START."
-	done
-
 NationalPark_MapEvents:
 	db 0, 0 ; filler
 
@@ -526,7 +494,6 @@ NationalPark_MapEvents:
 	bg_event 14, 44, BGEVENT_READ, NationalParkRelaxationSquareSign
 	bg_event 27, 31, BGEVENT_READ, NationalParkBattleNoticeSign
 	bg_event  6, 47, BGEVENT_ITEM, NationalParkHiddenFullHeal
-	bg_event 12,  4, BGEVENT_READ, NationalParkTrainerTipsSign
 
 	def_object_events
 	object_event 15, 24, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, NationalParkLassScript, -1
@@ -541,5 +508,4 @@ NationalPark_MapEvents:
 	object_event 16,  9, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerPokefanmWilliam, -1
 	object_event  8, 14, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerLassKrise, -1
 	object_event 35, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, NationalParkParlyzHeal, EVENT_NATIONAL_PARK_PARLYZ_HEAL
-	object_event 26,  6, SPRITE_GAMEBOY_KID, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NationalParkGameboyKidScript, -1
 	object_event  1, 43, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, NationalParkTMDig, EVENT_NATIONAL_PARK_TM_DIG

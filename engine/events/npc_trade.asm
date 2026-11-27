@@ -34,9 +34,6 @@ NPCTrade::
 	ld b, SET_FLAG
 	call TradeFlagAction
 
-	ld hl, NPCTradeCableText
-	call PrintText
-
 	call DoNPCTrade
 	call .TradeAnimation
 	call GetTradeMonNames
@@ -432,10 +429,6 @@ TradeTexts:
 	dw NPCTradeAfterText4
 	dw NPCTradeAfterText3
 	assert_table_length NUM_TRADE_DIALOGS * NUM_TRADE_DIALOGSETS
-
-NPCTradeCableText:
-	text_far _NPCTradeCableText
-	text_end
 
 TradedForText:
 	; traded givemon for getmon
