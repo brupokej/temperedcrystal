@@ -1,0 +1,14 @@
+setup = """
+	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	warp ECRUTEAK_CITY, 23, 28
+"""
+
+[[steps]]
+face = "UP"
+
+[[steps]]
+press = "UP"
+
+[[steps]]
+press = "A"
+until_text = "Buh-bye!"

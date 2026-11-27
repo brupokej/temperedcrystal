@@ -1,0 +1,12 @@
+setup = """
+	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	clearevent EVENT_MET_BILL
+	warp BILLS_FAMILYS_HOUSE, 1, 3
+"""
+
+[[steps]]
+face = "RIGHT"
+
+[[steps]]
+press = "A"
+until_text = "CHRIS?"

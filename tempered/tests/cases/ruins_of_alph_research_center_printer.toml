@@ -1,0 +1,38 @@
+setup = """
+	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	clearevent EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_SCIENTIST
+	loadmem wUnownDex + 0, 1
+	loadmem wUnownDex + 1, 2
+	loadmem wUnownDex + 2, 3
+	loadmem wUnownDex + 3, 4
+	loadmem wUnownDex + 4, 5
+	loadmem wUnownDex + 5, 6
+	loadmem wUnownDex + 6, 7
+	loadmem wUnownDex + 7, 8
+	loadmem wUnownDex + 8, 9
+	loadmem wUnownDex + 9, 10
+	loadmem wUnownDex + 10, 11
+	loadmem wUnownDex + 11, 12
+	loadmem wUnownDex + 12, 13
+	loadmem wUnownDex + 13, 14
+	loadmem wUnownDex + 14, 15
+	loadmem wUnownDex + 15, 16
+	loadmem wUnownDex + 16, 17
+	loadmem wUnownDex + 17, 18
+	loadmem wUnownDex + 18, 19
+	loadmem wUnownDex + 19, 20
+	loadmem wUnownDex + 20, 21
+	loadmem wUnownDex + 21, 22
+	loadmem wUnownDex + 22, 23
+	loadmem wUnownDex + 23, 24
+	loadmem wUnownDex + 24, 25
+	loadmem wUnownDex + 25, 26
+	warp RUINS_OF_ALPH_RESEARCH_CENTER, 7, 2
+"""
+
+[[steps]]
+face = "UP"
+
+[[steps]]
+press = "A"
+until_text = "printed out."

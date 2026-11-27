@@ -1,0 +1,7 @@
+setup = """
+	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	warp GOLDENROD_DEPT_STORE_5F, 9, 2
+"""
+
+[[steps]]
+face = "UP"

@@ -1,0 +1,43 @@
+setup = """
+	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	loadmem wPokedexCaught + 0, $ff
+	loadmem wPokedexCaught + 1, $ff
+	loadmem wPokedexCaught + 2, $ff
+	loadmem wPokedexCaught + 3, $ff
+	loadmem wPokedexCaught + 4, $ff
+	loadmem wPokedexCaught + 5, $ff
+	loadmem wPokedexCaught + 6, $ff
+	loadmem wPokedexCaught + 7, $ff
+	loadmem wPokedexCaught + 8, $ff
+	loadmem wPokedexCaught + 9, $ff
+	loadmem wPokedexCaught + 10, $ff
+	loadmem wPokedexCaught + 11, $ff
+	loadmem wPokedexCaught + 12, $ff
+	loadmem wPokedexCaught + 13, $ff
+	loadmem wPokedexCaught + 14, $ff
+	loadmem wPokedexCaught + 15, $ff
+	loadmem wPokedexCaught + 16, $ff
+	loadmem wPokedexCaught + 17, $ff
+	loadmem wPokedexCaught + 18, $ff
+	loadmem wPokedexCaught + 19, $ff
+	loadmem wPokedexCaught + 20, $ff
+	loadmem wPokedexCaught + 21, $ff
+	loadmem wPokedexCaught + 22, $ff
+	loadmem wPokedexCaught + 23, $ff
+	loadmem wPokedexCaught + 24, $ff
+	loadmem wPokedexCaught + 25, $ff
+	loadmem wPokedexCaught + 26, $ff
+	loadmem wPokedexCaught + 27, $ff
+	loadmem wPokedexCaught + 28, $ff
+	loadmem wPokedexCaught + 29, $ff
+	loadmem wPokedexCaught + 30, $ff
+	loadmem wPokedexCaught + 31, $07
+	warp CELADON_MANSION_3F, 3, 5
+"""
+
+[[steps]]
+face = "DOWN"
+
+[[steps]]
+press = "A"
+until_text = "it off."

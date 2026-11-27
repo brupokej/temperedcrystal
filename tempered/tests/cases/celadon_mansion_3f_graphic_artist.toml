@@ -1,0 +1,12 @@
+setup = """
+	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	setevent EVENT_ENABLE_DIPLOMA_PRINTING
+	warp CELADON_MANSION_3F, 3, 5
+"""
+
+[[steps]]
+face = "UP"
+
+[[steps]]
+press = "A"
+until_text = "out your DIPLOMA?"

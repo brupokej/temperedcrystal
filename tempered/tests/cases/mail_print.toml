@@ -1,0 +1,31 @@
+setup = """
+	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	givepoke CHIKORITA, 5, FLOWER_MAIL
+	warp NEW_BARK_TOWN, 13, 6
+"""
+
+[[steps]]
+press = "START"
+until_text = "PACK"
+
+[[steps]]
+press = "A"
+until_text = "Choose a"
+
+[[steps]]
+press = "A"
+until_text = "STATS"
+
+[[steps]]
+press = "DOWN"
+until_text = "▶MAIL"
+
+[[steps]]
+press = "A"
+until_text = "READ"
+
+[[steps]]
+press = "A"
+
+[[steps]]
+press = "START"

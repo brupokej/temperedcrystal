@@ -1,0 +1,7 @@
+setup = """
+	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	warp CHERRYGROVE_POKECENTER_1F, 2, 6
+"""
+
+[[steps]]
+face = "LEFT"
