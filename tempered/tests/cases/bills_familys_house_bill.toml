@@ -9,4 +9,4 @@ face = "RIGHT"
 
 [[steps]]
 press = "A"
-until_text = "CHRIS?"
+until_text = "system."
