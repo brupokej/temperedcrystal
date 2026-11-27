@@ -27,8 +27,6 @@ GameFreakGameDesignerScript:
 	writetext GameFreakGameDesignerPauseForDiplomaText
 	promptbutton
 	special Diploma
-	writetext GameFreakGameDesignerAfterDiplomaText
-	waitbutton
 	closetext
 	setevent EVENT_ENABLE_DIPLOMA_PRINTING
 	end
