@@ -7,7 +7,3 @@ setup = """
 
 [[steps]]
 face = "UP"
-
-[[steps]]
-press = "A"
-until_text = "thing for you."
