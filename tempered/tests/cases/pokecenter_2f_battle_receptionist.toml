@@ -1,0 +1,12 @@
+setup = """
+	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	setevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
+	warp POKECENTER_2F, 9, 3
+"""
+
+[[steps]]
+face = "UP"
+
+[[steps]]
+press = "A"
+until_text = "ready."

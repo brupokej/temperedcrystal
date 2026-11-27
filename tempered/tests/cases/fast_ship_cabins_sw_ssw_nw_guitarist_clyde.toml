@@ -1,0 +1,13 @@
+setup = """
+	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	setevent EVENT_BEAT_GUITARIST_CLYDE
+	clearevent EVENT_FAST_SHIP_PASSENGERS_WESTBOUND
+	warp FAST_SHIP_CABINS_SW_SSW_NW, 3, 29
+"""
+
+[[steps]]
+face = "UP"
+
+[[steps]]
+press = "A"
+until_text = "RADIO STATION,"

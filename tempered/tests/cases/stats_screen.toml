@@ -1,0 +1,21 @@
+setup = """
+	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	givepoke CYNDAQUIL, 5
+	warp NEW_BARK_TOWN, 13, 6
+"""
+
+[[steps]]
+press = "START"
+until_text = "PACK"
+
+[[steps]]
+press = "A"
+until_text = "Choose a"
+
+[[steps]]
+press = "A"
+until_text = "STATS"
+
+[[steps]]
+press = "A"
+until_text = "EXP POINTS"

@@ -1,0 +1,11 @@
+setup = """
+	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	warp CERULEAN_POKECENTER_1F, 9, 5
+"""
+
+[[steps]]
+face = "UP"
+
+[[steps]]
+press = "A"
+until_text = "much rather use"

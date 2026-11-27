@@ -1,0 +1,11 @@
+setup = """
+	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	setevent EVENT_BEAT_ELITE_FOUR
+	warp GOLDENROD_CITY, 15, 28
+"""
+
+[[steps]]
+walk = "UP 3"
+
+[[steps]]
+walk = "DOWN 3"
