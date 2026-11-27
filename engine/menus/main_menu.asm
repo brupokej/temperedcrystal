@@ -5,10 +5,10 @@
 
 	; MainMenu.Strings and MainMenu.Jumptable indexes
 	const_def
-	const MAINMENUITEM_CONTINUE     ; 0
-	const MAINMENUITEM_NEW_GAME     ; 1
-	const MAINMENUITEM_OPTION       ; 2
-	const MAINMENUITEM_DEBUG_ROOM   ; 4
+	const MAINMENUITEM_CONTINUE   ; 0
+	const MAINMENUITEM_NEW_GAME   ; 1
+	const MAINMENUITEM_OPTION     ; 2
+	const MAINMENUITEM_DEBUG_ROOM ; 3
 
 MainMenu:
 .loop

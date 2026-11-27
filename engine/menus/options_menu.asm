@@ -4,10 +4,10 @@
 	const OPT_BATTLE_SCENE  ; 1
 	const OPT_BATTLE_STYLE  ; 2
 	const OPT_SOUND         ; 3
-	const OPT_MENU_ACCOUNT  ; 5
-	const OPT_FRAME         ; 6
-	const OPT_CANCEL        ; 7
-DEF NUM_OPTIONS EQU const_value ; 8
+	const OPT_MENU_ACCOUNT  ; 4
+	const OPT_FRAME         ; 5
+	const OPT_CANCEL        ; 6
+DEF NUM_OPTIONS EQU const_value ; 7
 
 _Option:
 ; BUG: Options menu fails to clear joypad state on initialization (see docs/bugs_and_glitches.md)
