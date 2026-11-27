@@ -1196,18 +1196,6 @@ _SavingRecordText::
 	line "DON'T TURN OFF!"
 	done
 
-_ReceiveItemText::
-	text_ram wPlayerName
-	text " received"
-	line "@"
-	text_ram wStringBuffer1
-	text "!@"
-	sound_item
-	text_promptbutton
-	text_end
-
-	text_end ; unreferenced
-
 _NoCoinsText::
 	text "You have no coins."
 	prompt
@@ -1711,20 +1699,4 @@ _NoRoomForEggText::
 	text "You have no room"
 	line "in your party."
 	cont "Come back later."
-	done
-
-_WhichMonPhotoText::
-	text "Which #MON"
-	line "should I photo-"
-	cont "graph?"
-	prompt
-
-_HoldStillText::
-	text "All righty. Hold"
-	line "still for a bit."
-	prompt
-
-_PrestoAllDoneText::
-	text "Presto! All done."
-	line "Come again, OK?"
 	done

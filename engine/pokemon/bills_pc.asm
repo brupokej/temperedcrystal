@@ -2401,25 +2401,6 @@ BillsPC_ChangeBoxSubmenu:
 	and a
 	ret
 
-.Print:
-	call GetBoxCount
-	and a
-	jr z, .EmptyBox
-	ld e, l
-	ld d, h
-	ld a, [wMenuSelection]
-	dec a
-	ld c, a
-	farcall PrintPCBox
-	call BillsPC_ClearTilemap
-	and a
-	ret
-
-.EmptyBox:
-	call BillsPC_PlaceEmptyBoxString_SFX
-	and a
-	ret
-
 .Switch:
 	ld a, [wMenuSelection]
 	dec a
@@ -2480,19 +2461,6 @@ BillsPC_PlaceWhatsUpString:
 
 .WhatsUp:
 	db "What's up?@"
-
-BillsPC_PlaceEmptyBoxString_SFX:
-	ld de, .NoMonString
-	call BillsPC_PlaceChangeBoxString
-	ld de, SFX_WRONG
-	call WaitPlaySFX
-	call WaitSFX
-	ld c, 50
-	call DelayFrames
-	ret
-
-.NoMonString:
-	db "There's no #MON.@"
 
 BillsPC_PlaceChangeBoxString:
 	push de

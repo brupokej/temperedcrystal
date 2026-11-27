@@ -355,7 +355,6 @@ Pokedex_UpdateDexEntryScreen:
 	ld a, [hl]
 	and PAD_B
 	jr nz, .return_to_prev_screen
-	vc_hook Forbid_printing_Pokedex
 	ld a, [hl]
 	and PAD_A
 	jr nz, .do_menu_action
@@ -469,34 +468,6 @@ DexEntryScreen_MenuActionJumptable:
 	ld e, c
 	ld d, b
 	call PlayCry
-	ret
-
-.Print:
-	call Pokedex_ApplyPrintPals
-	xor a
-	ldh [hSCX], a
-	ld a, [wPrevDexEntryBackup]
-	push af
-	ld a, [wPrevDexEntryJumptableIndex]
-	push af
-	ld a, [wJumptableIndex]
-	push af
-	farcall PrintDexEntry
-	pop af
-	ld [wJumptableIndex], a
-	pop af
-	ld [wPrevDexEntryJumptableIndex], a
-	pop af
-	ld [wPrevDexEntryBackup], a
-	call ClearBGPalettes
-	call DisableLCD
-	call Pokedex_LoadInvertedFont
-	call Pokedex_RedisplayDexEntry
-	call EnableLCD
-	call WaitBGMap
-	ld a, POKEDEX_SCX
-	ldh [hSCX], a
-	call Pokedex_ApplyUsualPals
 	ret
 
 Pokedex_RedisplayDexEntry:
@@ -2317,25 +2288,9 @@ Pokedex_BlackOutBG:
 	pop af
 	ldh [rWBK], a
 
-Pokedex_ApplyPrintPals:
-	ld a, $ff
-	call DmgToCgbBGPals
-	ld a, $ff
-	call DmgToCgbObjPal0
-	call DelayFrame
-	ret
-
 Pokedex_GetSGBLayout:
 	ld b, a
 	call GetSGBLayout
-
-Pokedex_ApplyUsualPals:
-; This applies the palettes used for most Pokédex screens.
-	ld a, $e4
-	call DmgToCgbBGPals
-	ld a, $e0
-	call DmgToCgbObjPal0
-	ret
 
 Pokedex_LoadPointer:
 	ld e, a

@@ -2,14 +2,12 @@
 	const_def
 	const MAINMENU_NEW_GAME ; 0
 	const MAINMENU_CONTINUE ; 1
-	const MAINMENU_MYSTERY  ; 2
 
 	; MainMenu.Strings and MainMenu.Jumptable indexes
 	const_def
 	const MAINMENUITEM_CONTINUE     ; 0
 	const MAINMENUITEM_NEW_GAME     ; 1
 	const MAINMENUITEM_OPTION       ; 2
-	const MAINMENUITEM_MYSTERY_GIFT ; 3
 	const MAINMENUITEM_DEBUG_ROOM   ; 4
 
 MainMenu:
@@ -57,7 +55,6 @@ MainMenu:
 	db "CONTINUE@"
 	db "NEW GAME@"
 	db "OPTION@"
-	db "MYSTERY GIFT@"
 if DEF(_DEBUG)
 	db "DEBUG ROOM@"
 endc
@@ -67,7 +64,6 @@ endc
 	dw MainMenu_Continue
 	dw MainMenu_NewGame
 	dw MainMenu_Option
-	dw MainMenu_MysteryGift
 if DEF(_DEBUG)
 	dw MainMenu_DebugRoom
 endc
@@ -86,17 +82,6 @@ MainMenuItems:
 	db MAINMENUITEM_CONTINUE
 	db MAINMENUITEM_NEW_GAME
 	db MAINMENUITEM_OPTION
-if DEF(_DEBUG)
-	db MAINMENUITEM_DEBUG_ROOM
-endc
-	db -1
-
-	; MAINMENU_MYSTERY
-	db 4 + DEF(_DEBUG)
-	db MAINMENUITEM_CONTINUE
-	db MAINMENUITEM_NEW_GAME
-	db MAINMENUITEM_OPTION
-	db MAINMENUITEM_MYSTERY_GIFT
 if DEF(_DEBUG)
 	db MAINMENUITEM_DEBUG_ROOM
 endc
@@ -256,8 +241,4 @@ MainMenu_Option:
 
 MainMenu_Continue:
 	farcall Continue
-	ret
-
-MainMenu_MysteryGift:
-	farcall MysteryGift
 	ret
