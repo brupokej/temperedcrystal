@@ -1381,8 +1381,6 @@ LoadTilesetGFX::
 	jr z, .load_roof
 	cp TILESET_JOHTO_MODERN
 	jr z, .load_roof
-	cp TILESET_BATTLE_TOWER_OUTSIDE
-	jr z, .load_roof
 	jr .skip_roof
 
 .load_roof
@@ -2205,7 +2203,6 @@ GetMapMusic::
 	jr z, .mahoganymart
 	bit RADIO_TOWER_MUSIC_F, c
 	jr nz, .radiotower
-	farcall Function8b342
 	ld e, c
 	ld d, 0
 .done

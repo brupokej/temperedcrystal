@@ -105,10 +105,6 @@ BattleCommand_BeatUp:
 	and a
 	jr nz, .link_or_tower
 
-	ld a, [wInBattleTowerBattle]
-	and a
-	jr nz, .link_or_tower
-
 	ld a, [wCurBeatUpPartyMon]
 	ld c, a
 	ld b, 0

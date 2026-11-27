@@ -64,20 +64,11 @@ DoBattleTransition:
 	ret
 
 .InitGFX:
-	ld a, [wLinkMode]
-	cp LINK_MOBILE
-	jr z, .mobile
 	farcall ReanchorBGMap_NoOAMUpdate
 	call UpdateSprites
 	call DelayFrame
 	call .NonMobile_LoadBattleTransitionTiles
 	call BattleStart_CopyTilemapAtOnce
-	jr .resume
-
-.mobile
-	call LoadBattleTransitionGFX
-
-.resume
 	ld a, SCREEN_HEIGHT_PX
 	ldh [hWY], a
 	call DelayFrame

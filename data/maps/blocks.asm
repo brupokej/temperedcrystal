@@ -208,7 +208,6 @@ Route35GoldenrodGate_Blocks:
 Route36RuinsOfAlphGate_Blocks:
 Route34IlexForestGate_Blocks:
 Route6SaffronGate_Blocks:
-Route40BattleTowerGate_Blocks:
 Route2Gate_Blocks:
 Route29Route46Gate_Blocks:
 Route5SaffronGate_Blocks:
@@ -1015,30 +1014,6 @@ RuinsOfAlphAerodactylWordRoom_Blocks:
 
 DragonShrine_Blocks:
 	INCBIN "maps/DragonShrine.blk"
-
-BattleTower1F_Blocks:
-	INCBIN "maps/BattleTower1F.blk"
-
-BattleTowerBattleRoom_Blocks:
-	INCBIN "maps/BattleTowerBattleRoom.blk"
-
-PokecomCenterAdminOfficeMobile_Blocks:
-	INCBIN "maps/PokecomCenterAdminOfficeMobile.blk"
-
-MobileTradeRoom_Blocks:
-	INCBIN "maps/MobileTradeRoom.blk"
-
-MobileBattleRoom_Blocks:
-	INCBIN "maps/MobileBattleRoom.blk"
-
-BattleTowerHallway_Blocks:
-	INCBIN "maps/BattleTowerHallway.blk"
-
-BattleTowerElevator_Blocks:
-	INCBIN "maps/BattleTowerElevator.blk"
-
-BattleTowerOutside_Blocks:
-	INCBIN "maps/BattleTowerOutside.blk"
 
 BetaBlank_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaBlank.blk"
