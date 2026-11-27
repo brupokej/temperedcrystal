@@ -1026,21 +1026,21 @@ MACRO warpfacing
 	db \4 ; y
 ENDM
 
-	const getlandmarkname_command ; $a5
+	const getlandmarkname_command ; $a4
 MACRO getlandmarkname
 	db getlandmarkname_command
 	db \2 ; landmark_id
 	db \1 ; string_buffer
 ENDM
 
-	const gettrainerclassname_command ; $a6
+	const gettrainerclassname_command ; $a5
 MACRO gettrainerclassname
 	db gettrainerclassname_command
 	db \2 ; trainer_group
 	db \1 ; string_buffer
 ENDM
 
-	const getname_command ; $a7
+	const getname_command ; $a6
 MACRO getname
 	db getname_command
 	db \2 ; type
@@ -1048,13 +1048,13 @@ MACRO getname
 	db \1 ; memory
 ENDM
 
-	const wait_command ; $a8
+	const wait_command ; $a7
 MACRO wait
 	db wait_command
 	db \1 ; duration
 ENDM
 
-	const checksave_command ; $a9
+	const checksave_command ; $a8
 MACRO checksave
 	db checksave_command
 ENDM

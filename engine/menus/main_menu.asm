@@ -1,16 +1,16 @@
 	; MainMenuItems indexes
 	const_def
-	const MAINMENU_NEW_GAME               ; 0
-	const MAINMENU_CONTINUE               ; 1
-	const MAINMENU_MYSTERY                ; 6
+	const MAINMENU_NEW_GAME ; 0
+	const MAINMENU_CONTINUE ; 1
+	const MAINMENU_MYSTERY  ; 2
 
 	; MainMenu.Strings and MainMenu.Jumptable indexes
 	const_def
-	const MAINMENUITEM_CONTINUE       ; 0
-	const MAINMENUITEM_NEW_GAME       ; 1
-	const MAINMENUITEM_OPTION         ; 2
-	const MAINMENUITEM_MYSTERY_GIFT   ; 3
-	const MAINMENUITEM_DEBUG_ROOM     ; 6
+	const MAINMENUITEM_CONTINUE     ; 0
+	const MAINMENUITEM_NEW_GAME     ; 1
+	const MAINMENUITEM_OPTION       ; 2
+	const MAINMENUITEM_MYSTERY_GIFT ; 3
+	const MAINMENUITEM_DEBUG_ROOM   ; 4
 
 MainMenu:
 .loop

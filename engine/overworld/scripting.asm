@@ -228,11 +228,11 @@ ScriptCommandTable:
 	dw Script_halloffame                 ; a1
 	dw Script_credits                    ; a2
 	dw Script_warpfacing                 ; a3
-	dw Script_getlandmarkname            ; a5
-	dw Script_gettrainerclassname        ; a6
-	dw Script_getname                    ; a7
-	dw Script_wait                       ; a8
-	dw Script_checksave                  ; a9
+	dw Script_getlandmarkname            ; a4
+	dw Script_gettrainerclassname        ; a5
+	dw Script_getname                    ; a6
+	dw Script_wait                       ; a7
+	dw Script_checksave                  ; a8
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
