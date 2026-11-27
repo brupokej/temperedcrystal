@@ -15,4 +15,4 @@ until_text = "SEEN"
 
 [[steps]]
 press = "A"
-until_text = "▶PAGE AREA CRY PRNT"
+until_text = "▶PAGE AREA CRY"
