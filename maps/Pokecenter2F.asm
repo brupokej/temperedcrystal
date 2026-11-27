@@ -40,6 +40,9 @@ Pokecenter2F_AppearMysteryGiftDeliveryGuy:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
 	end
 
+Pokecenter2FReceptionistScript:
+	jumptextfaceplayer Text_CableClubClosed
+
 Script_TradeCenterClosed:
 	faceplayer
 	opentext
@@ -630,6 +633,14 @@ Pokecenter2FMovementData_ReceptionistStepsRightLooksLeft_2:
 	turn_head LEFT
 	step_end
 
+Text_CableClubClosed:
+	text "Welcome to the"
+	line "CABLE CLUB."
+
+	para "I'm sorry, but"
+	line "we're closed."
+	done
+
 Text_BattleReceptionistIntro:
 	text "Welcome to CABLE"
 	line "CLUB COLOSSEUM."
@@ -827,7 +838,7 @@ Pokecenter2F_MapEvents:
 	bg_event  7,  3, BGEVENT_READ, Pokecenter2FLinkRecordSign
 
 	def_object_events
-	object_event  5,  2, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, LinkReceptionistScript_Trade, -1
-	object_event  9,  2, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, LinkReceptionistScript_Battle, -1
-	object_event 13,  3, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, LinkReceptionistScript_TimeCapsule, -1
+	object_event  5,  2, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Pokecenter2FReceptionistScript, -1
+	object_event  9,  2, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Pokecenter2FReceptionistScript, -1
+	object_event 13,  3, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Pokecenter2FReceptionistScript, -1
 	object_event  1,  1, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Pokecenter2FOfficerScript, EVENT_MYSTERY_GIFT_DELIVERY_GUY
