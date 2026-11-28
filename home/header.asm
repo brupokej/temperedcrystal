@@ -50,7 +50,7 @@ SECTION "timer", ROM0[$0050]
 	reti
 
 SECTION "serial", ROM0[$0058]
-	jp Serial
+	reti
 
 SECTION "joypad", ROM0[$0060]
 	jp Joypad
