@@ -173,7 +173,6 @@ ROMX $3e
 ROMX $3f
 	"bank3F"
 ROMX $40
-	"mobile40"
 ROMX $41
 	"bank41"
 ROMX $42
@@ -231,7 +230,6 @@ ROMX $59
 ROMX $5a
 	"Pics 19"
 ROMX $5b
-	"bank5B"
 	"Pics 20"
 ROMX $5c
 	"Pics 21"
@@ -292,7 +290,6 @@ ROMX $74
 	"Pokedex Entries 193-251"
 ROMX $77
 	"Unown Font"
-	"Print Party"
 	"Tileset Data 7"
 	"bank77"
 	"Pokégear GFX"

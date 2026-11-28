@@ -1,13 +1,3 @@
-_NoPhotoText::
-	text "Oh, no picture?"
-	line "Come again, OK?"
-	done
-
-_EggPhotoText::
-	text "An EGG? My talent"
-	line "is worth more…"
-	done
-
 _NameRaterHelloText::
 	text "Hello, hello! I'm"
 	line "the NAME RATER."
@@ -211,55 +201,6 @@ _ReceivedTMHMText::
 	line "@"
 	text_ram wStringBuffer1
 	text "!"
-	prompt
-
-_MysteryGiftCanceledText::
-	text "The link has been"
-	line "cancelled."
-	prompt
-
-_MysteryGiftCommErrorText::
-	text "Communication"
-	line "error."
-	prompt
-
-_RetrieveMysteryGiftText::
-	text "Must retrieve GIFT"
-	line "at #MON CENTER."
-	prompt
-
-_YourFriendIsNotReadyText::
-	text "Your friend isn't"
-	line "ready."
-	prompt
-
-_MysteryGiftFiveADayText::
-	text "Sorry--only five"
-	line "GIFTS a day."
-	prompt
-
-_MysteryGiftOneADayText::
-	text "Sorry. One GIFT"
-	line "a day per person."
-	prompt
-
-_MysteryGiftSentText::
-	text_ram wMysteryGiftPartnerName
-	text " sent"
-	line "@"
-	text_ram wStringBuffer1
-	text "."
-	prompt
-
-_MysteryGiftSentHomeText::
-	text_ram wMysteryGiftPartnerName
-	text " sent"
-	line "@"
-	text_ram wStringBuffer1
-	text_start
-	cont "to @"
-	text_ram wMysteryGiftPlayerName
-	text "'s home."
 	prompt
 
 _BadgeRequiredText::

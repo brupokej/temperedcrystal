@@ -432,13 +432,6 @@ CeladonGameCorner_Blocks:
 CeladonGameCornerPrizeRoom_Blocks:
 	INCBIN "maps/CeladonGameCornerPrizeRoom.blk"
 
-Colosseum_Blocks:
-	INCBIN "maps/Colosseum.blk"
-
-TradeCenter_Blocks:
-TimeCapsule_Blocks:
-	INCBIN "maps/TradeCenter.blk"
-
 EcruteakLugiaSpeechHouse_Blocks:
 EcruteakItemfinderHouse_Blocks:
 VioletNicknameSpeechHouse_Blocks:
