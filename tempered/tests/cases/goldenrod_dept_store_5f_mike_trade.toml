@@ -9,4 +9,4 @@ face = "RIGHT"
 
 [[steps]]
 press = "A"
-until_text = "Game Link Cable."
+until_text = "Thanks!"

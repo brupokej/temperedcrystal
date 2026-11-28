@@ -1,6 +1,5 @@
 	object_const_def
 	const GOLDENRODPOKECENTER1F_NURSE
-	const GOLDENRODPOKECENTER1F_GAMEBOY_KID
 	const GOLDENRODPOKECENTER1F_LASS
 	const GOLDENRODPOKECENTER1F_POKEFAN_F
 
@@ -11,9 +10,6 @@ GoldenrodPokecenter1F_MapScripts:
 
 GoldenrodPokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript
-
-GoldenrodPokecenter1FGameboyKidScript:
-	jumptextfaceplayer GoldenrodPokecenter1FGameboyKidText
 
 GoldenrodPokecenter1FLassScript:
 	jumptextfaceplayer GoldenrodPokecenter1FLassText
@@ -563,18 +559,6 @@ GoldenrodPokecomCenterPerson11Text: ; unreferenced
 	cont "NEWS?"
 	done
 
-GoldenrodPokecenter1FGameboyKidText:
-	text "The COLOSSEUM"
-	line "upstairs is for"
-	cont "link battles."
-
-	para "Battle records are"
-	line "posted on the"
-
-	para "wall, so I can't"
-	line "afford to lose."
-	done
-
 GoldenrodPokecomCenterPerson12Text: ; unreferenced
 	text "I came over here"
 	line "when I got word"
@@ -701,6 +685,5 @@ GoldenrodPokecenter1F_MapEvents:
 
 	def_object_events
 	object_event  3,  1, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodPokecenter1FNurseScript, -1
-	object_event  6,  1, SPRITE_GAMEBOY_KID, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodPokecenter1FGameboyKidScript, -1
 	object_event  1,  4, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodPokecenter1FLassScript, -1
 	object_event  7,  5, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GoldenrodPokecenter1FPokefanF, -1

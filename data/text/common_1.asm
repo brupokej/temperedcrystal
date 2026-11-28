@@ -1217,11 +1217,6 @@ _NoCoinCaseText::
 	line "COIN CASE."
 	prompt
 
-_NPCTradeCableText::
-	text "OK, connect the"
-	line "Game Link Cable."
-	prompt
-
 Text_NPCTraded::
 	text "<PLAYER> traded"
 	line "@"

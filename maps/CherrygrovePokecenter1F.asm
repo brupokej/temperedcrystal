@@ -2,7 +2,6 @@
 	const CHERRYGROVEPOKECENTER1F_NURSE
 	const CHERRYGROVEPOKECENTER1F_FISHER
 	const CHERRYGROVEPOKECENTER1F_GENTLEMAN
-	const CHERRYGROVEPOKECENTER1F_TEACHER
 
 CherrygrovePokecenter1F_MapScripts:
 	def_scene_scripts
@@ -18,22 +17,6 @@ CherrygrovePokecenter1FFisherScript:
 CherrygrovePokecenter1FGentlemanScript:
 	jumptextfaceplayer CherrygrovePokecenter1FGentlemanText
 
-CherrygrovePokecenter1FTeacherScript:
-	faceplayer
-	opentext
-	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
-	iftrue .CommCenterOpen
-	writetext CherrygrovePokecenter1FTeacherText
-	waitbutton
-	closetext
-	end
-
-.CommCenterOpen:
-	writetext CherrygrovePokecenter1FTeacherText_CommCenterOpen
-	waitbutton
-	closetext
-	end
-
 CherrygrovePokecenter1FFisherText:
 	text "It's great. I can"
 	line "store any number"
@@ -46,24 +29,6 @@ CherrygrovePokecenter1FGentlemanText:
 	text "That PC is free"
 	line "for any trainer"
 	cont "to use."
-	done
-
-CherrygrovePokecenter1FTeacherText:
-	text "The COMMUNICATION"
-	line "CENTER upstairs"
-	cont "was just built."
-
-	para "But they're still"
-	line "finishing it up."
-	done
-
-CherrygrovePokecenter1FTeacherText_CommCenterOpen:
-	text "The COMMUNICATION"
-	line "CENTER upstairs"
-	cont "was just built."
-
-	para "I traded #MON"
-	line "there already!"
 	done
 
 CherrygrovePokecenter1F_MapEvents:
@@ -82,4 +47,3 @@ CherrygrovePokecenter1F_MapEvents:
 	object_event  3,  1, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygrovePokecenter1FNurseScript, -1
 	object_event  2,  3, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CherrygrovePokecenter1FFisherScript, -1
 	object_event  8,  6, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygrovePokecenter1FGentlemanScript, -1
-	object_event  1,  6, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CherrygrovePokecenter1FTeacherScript, -1

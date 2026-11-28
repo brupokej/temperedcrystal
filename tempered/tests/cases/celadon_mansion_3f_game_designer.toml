@@ -40,4 +40,4 @@ face = "DOWN"
 
 [[steps]]
 press = "A"
-until_text = "it off."
+until_text = "completed the"

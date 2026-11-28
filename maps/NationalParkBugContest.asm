@@ -103,9 +103,6 @@ NationalParkBugContestRelaxationSquareSign:
 NationalParkBugContestBattleNoticeSign:
 	jumptext NationalParkBugContestBattleNoticeText
 
-NationalParkBugContestTrainerTipsSign:
-	jumptext NationalParkBugContestTrainerTipsText
-
 NationalParkBugContestParlyzHeal:
 	itemball PARLYZ_HEAL
 
@@ -210,14 +207,6 @@ NationalParkBugContestBattleNoticeText:
 	line "WARDEN'S OFFICE"
 	done
 
-NationalParkBugContestTrainerTipsText:
-	text "TRAINER TIPS"
-
-	para "Print out MAIL by"
-	line "opening it then"
-	cont "pressing START."
-	done
-
 NationalParkBugContest_MapEvents:
 	db 0, 0 ; filler
 
@@ -233,7 +222,6 @@ NationalParkBugContest_MapEvents:
 	bg_event 14, 44, BGEVENT_READ, NationalParkBugContestRelaxationSquareSign
 	bg_event 27, 31, BGEVENT_READ, NationalParkBugContestBattleNoticeSign
 	bg_event  6, 47, BGEVENT_ITEM, NationalParkBugContestHiddenFullHeal
-	bg_event 12,  4, BGEVENT_READ, NationalParkBugContestTrainerTipsSign
 
 	def_object_events
 	object_event 19, 29, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant1AScript, EVENT_BUG_CATCHING_CONTESTANT_1A

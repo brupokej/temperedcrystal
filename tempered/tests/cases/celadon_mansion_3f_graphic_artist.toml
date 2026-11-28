@@ -9,4 +9,4 @@ face = "UP"
 
 [[steps]]
 press = "A"
-until_text = "out your DIPLOMA?"
+until_text = "I drew you!"
