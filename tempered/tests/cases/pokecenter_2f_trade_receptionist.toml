@@ -9,4 +9,4 @@ face = "UP"
 
 [[steps]]
 press = "A"
-until_text = "ready."
+until_text = "we're closed."

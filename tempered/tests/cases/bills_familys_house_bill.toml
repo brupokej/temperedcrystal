@@ -9,4 +9,4 @@ face = "RIGHT"
 
 [[steps]]
 press = "A"
-until_text = "the TIME CAPSULE."
+until_text = "system."

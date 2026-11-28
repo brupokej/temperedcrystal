@@ -10,4 +10,4 @@ face = "UP"
 
 [[steps]]
 press = "A"
-until_text = "trade across time?"
+until_text = "we're closed."

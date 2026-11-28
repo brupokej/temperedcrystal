@@ -111,9 +111,9 @@ BillTakeThisEeveeText:
 	line "Do us a favor and"
 	cont "take this EEVEE."
 
-	para "It came over when"
-	line "I was adjusting"
-	cont "the TIME CAPSULE."
+	para "Somebody left it"
+	line "in the PC storage"
+	cont "system."
 
 	para "Someone has to"
 	line "take care of it,"
