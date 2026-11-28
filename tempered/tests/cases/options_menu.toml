@@ -13,4 +13,4 @@ until_text = "▶OPTION"
 
 [[steps]]
 press = "A"
-until_text = "PRINT"
+until_text = "CANCEL"

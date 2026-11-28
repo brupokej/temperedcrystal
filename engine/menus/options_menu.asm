@@ -4,7 +4,6 @@
 	const OPT_BATTLE_SCENE  ; 1
 	const OPT_BATTLE_STYLE  ; 2
 	const OPT_SOUND         ; 3
-	const OPT_PRINT         ; 4
 	const OPT_MENU_ACCOUNT  ; 5
 	const OPT_FRAME         ; 6
 	const OPT_CANCEL        ; 7
@@ -83,8 +82,6 @@ StringOptions:
 	db "        :<LF>"
 	db "SOUND<LF>"
 	db "        :<LF>"
-	db "PRINT<LF>"
-	db "        :<LF>"
 	db "MENU ACCOUNT<LF>"
 	db "        :<LF>"
 	db "FRAME<LF>"
@@ -100,7 +97,6 @@ GetOptionPointer:
 	dw Options_BattleScene
 	dw Options_BattleStyle
 	dw Options_Sound
-	dw Options_Print
 	dw Options_MenuAccount
 	dw Options_Frame
 	dw Options_Cancel
@@ -445,7 +441,7 @@ Options_MenuAccount:
 	ld de, .On
 
 .Display:
-	hlcoord 11, 13
+	hlcoord 11, 11
 	call PlaceString
 	and a
 	ret
@@ -477,7 +473,7 @@ Options_Frame:
 	ld [hl], a
 UpdateFrame:
 	ld a, [wTextboxFrame]
-	hlcoord 16, 15 ; where on the screen the number is drawn
+	hlcoord 16, 13 ; where on the screen the number is drawn
 	add '1'
 	ld [hl], a
 	call LoadFontsExtra
