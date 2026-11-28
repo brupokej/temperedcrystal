@@ -1,0 +1,13 @@
+setup = """
+	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	setevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
+	clearevent EVENT_MET_BILL
+	warp POKECENTER_2F, 13, 4
+"""
+
+[[steps]]
+face = "UP"
+
+[[steps]]
+press = "A"
+until_text = "trade across time?"

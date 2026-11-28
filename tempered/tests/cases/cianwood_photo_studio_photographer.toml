@@ -1,0 +1,7 @@
+setup = """
+	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	warp CIANWOOD_PHOTO_STUDIO, 1, 3
+"""
+
+[[steps]]
+face = "RIGHT"

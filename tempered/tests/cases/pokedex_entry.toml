@@ -1,0 +1,18 @@
+setup = """
+	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	setflag ENGINE_POKEDEX
+	givepoke CHIKORITA, 5
+	warp NEW_BARK_TOWN, 13, 6
+"""
+
+[[steps]]
+press = "START"
+until_text = "PACK"
+
+[[steps]]
+press = "A"
+until_text = "SEEN"
+
+[[steps]]
+press = "A"
+until_text = "▶PAGE AREA CRY PRNT"
